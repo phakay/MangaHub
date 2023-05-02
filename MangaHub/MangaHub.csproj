@@ -190,10 +190,17 @@
     <Compile Include="Migrations\202305012042091_InitalModel.Designer.cs">
       <DependentUpon>202305012042091_InitalModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305020718370_CreateMangaTable.cs" />
+    <Compile Include="Migrations\202305020718370_CreateMangaTable.Designer.cs">
+      <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Manga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -273,6 +280,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202305012042091_InitalModel.resx">
       <DependentUpon>202305012042091_InitalModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305020718370_CreateMangaTable.resx">
+      <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
