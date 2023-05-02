@@ -1,0 +1,36 @@
+﻿@model MangaHub.Models.ViewModels.MangaFormViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Manga</h2>
+
+@using (Html.BeginForm("Create", "Mangas", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p class="alert alert-info">All fields are <strong>required</strong>.</p>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Title)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Genre)
+        @Html.DropDownListFor(m => m.Genre, new SelectList(Model.Genres, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Genre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Picture)
+        <input type="file" name="Picture"/>
+        @Html.ValidationMessageFor(m => m.Picture)
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+}
+

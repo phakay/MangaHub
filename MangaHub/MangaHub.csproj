@@ -183,6 +183,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Migrations\202305021053337_EditMangaTable.cs" />
+    <Compile Include="Migrations\202305021053337_EditMangaTable.Designer.cs">
+      <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewModels\MangaFormViewModel.cs" />
+    <Compile Include="Controllers\MangasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -268,6 +274,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Mangas\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305020759077_OverriedDataConvention.resx">
       <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021053337_EditMangaTable.resx">
+      <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

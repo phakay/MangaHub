@@ -10,7 +10,7 @@ namespace MangaHub.Models
         [Required]
         public string ArtistId { get; set; }
         [MaxLength(255)]
-        public string Name { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public Genre Genre { get; set; }
         [Required]
