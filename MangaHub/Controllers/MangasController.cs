@@ -27,8 +27,8 @@ namespace MangaHub.Controllers
             return View(viewModel);
         }
 
-        [Authorize]
         [HttpPost]
+        [Authorize, ValidateAntiForgeryToken]
         public ActionResult Create(MangaFormViewModel viewModel)
         {
             var file = viewModel.Picture;

@@ -9,8 +9,7 @@
 
 @using (Html.BeginForm("Create", "Mangas", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <p class="alert alert-info">All fields are <strong>required</strong>.</p>
-
+    @Html.AntiForgeryToken()
     <div class="form-group">
         @Html.LabelFor(m => m.Title)
         @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus" })
