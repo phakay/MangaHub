@@ -187,6 +187,10 @@
     <Compile Include="Migrations\202305021053337_EditMangaTable.Designer.cs">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305021738356_EditApplicationUser.cs" />
+    <Compile Include="Migrations\202305021738356_EditApplicationUser.Designer.cs">
+      <DependentUpon>202305021738356_EditApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\MangaFormViewModel.cs" />
     <Compile Include="Controllers\MangasController.cs" />
     <Compile Include="Global.asax.cs">
@@ -307,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305021053337_EditMangaTable.resx">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021738356_EditApplicationUser.resx">
+      <DependentUpon>202305021738356_EditApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
