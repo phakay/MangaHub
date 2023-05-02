@@ -194,6 +194,14 @@
     <Compile Include="Migrations\202305020718370_CreateMangaTable.Designer.cs">
       <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305020740516_PopulateGenreTable.cs" />
+    <Compile Include="Migrations\202305020740516_PopulateGenreTable.Designer.cs">
+      <DependentUpon>202305020740516_PopulateGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305020759077_OverriedDataConvention.cs" />
+    <Compile Include="Migrations\202305020759077_OverriedDataConvention.Designer.cs">
+      <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -283,6 +291,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305020718370_CreateMangaTable.resx">
       <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305020740516_PopulateGenreTable.resx">
+      <DependentUpon>202305020740516_PopulateGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305020759077_OverriedDataConvention.resx">
+      <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
