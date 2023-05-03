@@ -1,16 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MangaHub.Models;
+using MangaHub.Models.ViewModels;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
-            return View();
+            var viewModel = new MangaViewModel()
+            {
+                Mangas = _context.Mangas
+                .Include(m => m.Artist)
+                .ToList()
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()

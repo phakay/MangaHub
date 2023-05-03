@@ -183,6 +183,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Models\ViewModels\MangaViewModel.cs" />
     <Compile Include="Migrations\202305021053337_EditMangaTable.cs" />
     <Compile Include="Migrations\202305021053337_EditMangaTable.Designer.cs">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
