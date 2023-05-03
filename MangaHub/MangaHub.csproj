@@ -181,7 +181,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Migrations\202305031226314_EditChaptersTable3.cs" />
+    <Compile Include="Migrations\202305031226314_EditChaptersTable3.Designer.cs">
+      <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dtos\ChapterDto.cs" />
+    <Compile Include="Controllers\Api\ChaptersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Migrations\202305030937090_EditManagaTable.cs" />
@@ -191,6 +196,18 @@
     <Compile Include="Migrations\202305030958199_AddChaptersTable.cs" />
     <Compile Include="Migrations\202305030958199_AddChaptersTable.Designer.cs">
       <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031054436_EditChaptersTable.cs" />
+    <Compile Include="Migrations\202305031054436_EditChaptersTable.Designer.cs">
+      <DependentUpon>202305031054436_EditChaptersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031121284_EditChaptersTable1.cs" />
+    <Compile Include="Migrations\202305031121284_EditChaptersTable1.Designer.cs">
+      <DependentUpon>202305031121284_EditChaptersTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031132015_EditChaptersTable2.cs" />
+    <Compile Include="Migrations\202305031132015_EditChaptersTable2.Designer.cs">
+      <DependentUpon>202305031132015_EditChaptersTable2.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\ViewModels\MangaViewModel.cs" />
@@ -332,6 +349,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305030958199_AddChaptersTable.resx">
       <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031054436_EditChaptersTable.resx">
+      <DependentUpon>202305031054436_EditChaptersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031121284_EditChaptersTable1.resx">
+      <DependentUpon>202305031121284_EditChaptersTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031132015_EditChaptersTable2.resx">
+      <DependentUpon>202305031132015_EditChaptersTable2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031226314_EditChaptersTable3.resx">
+      <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

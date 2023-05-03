@@ -20,6 +20,7 @@ namespace MangaHub.Controllers
             {
                 Mangas = _context.Mangas
                 .Include(m => m.Artist)
+                .Include(m => m.Chapters)
                 .ToList()
             };
 

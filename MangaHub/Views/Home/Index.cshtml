@@ -4,7 +4,7 @@
 }
 
 
-<div class="container">
+<div class="container manga-list">
     <div class="row pb-4 backgroundWhite">
         @foreach(var manga in Model.Mangas)
         { 
@@ -19,8 +19,39 @@
                                         <h3 style="color: #bbb9b9">Uploaded: @manga.DateCreated.ToString("d MMM yyyy HH:mm")</h3>
                                     </div>
                                     <div class="col-12">
-                                        @*TODO: implement display of chapters uploaded*@
-                                        <p>No Chapters exists...</p>
+                                        @if (manga.Chapters.Any())
+                                        {
+
+                                            <table class="table table-striped manga-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Chapter No.</th>
+                                                        <th>Pages</th>
+                                                        <th>Information</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var chap in manga.Chapters)
+                                                    {
+                                                        <tr>
+                                                            <td>@chap.ChapterNo</td>
+                                                            <td>@chap.NumberOfPages</td>
+                                                            <td>@chap.Information</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                            <div class="pagination-container">
+                                                <nav>
+                                                    <ul class="pagination"></ul>
+                                                </nav>
+                                            </div>
+                                            <div class="row_count"></div>
+                                        }
+                                        else
+                                        {
+                                            <p>No Chapter exists...</p>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -37,8 +68,76 @@
                     </div>
                 </div>
             </div>
-
         }
 
     </div>
 </div>
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(applyPagination);
+
+        function applyPagination() {
+            var maxRows = 10;
+            
+            $('.manga-table').each(function ()
+            {
+                var trNum = 0;
+                var parent = $(this).parent();
+                var totalRows = $(this).children('tbody').children('tr').length;
+
+                $(this).children('tbody').children('tr').each(function () {
+                    trNum++;
+                    if (trNum > maxRows)
+                        $(this).hide();
+                    else
+                        $(this).show();
+                });
+
+                if (totalRows > maxRows) {
+                    var pageNum = Math.ceil(totalRows / maxRows);
+                    for (i = 1; i <= pageNum; i++) {
+                        $(parent).find('.pagination')
+                            .append(`<li data-page="${i}"><span>${i}<span class="sr-only">(current)</span>
+                            </span></li>`)
+                            .show();
+                    }
+                }
+
+                $(parent).find('.pagination li:first-child').addClass('active');
+                showRowCount(parent,maxRows, 1, totalRows);
+
+
+                $(parent).find('.pagination li').on('click', function (e) {
+                    e.preventDefault();
+                    var pageNum = $(this).attr('data-page');
+                    var trIndex = 0;
+                    $(this).siblings('.pagination li').removeClass('active');
+                    $(this).addClass('active');
+                    showRowCount(parent, maxRows, pageNum, totalRows);
+
+                    var table = $(this).parent().parent().parent().siblings('.manga-table')[0];
+                    $(table).children('tbody').children('tr').each(function () {
+                        trIndex++;
+                        if (trIndex > maxRows * pageNum || trIndex <= maxRows * (pageNum - 1))
+                            $(this).hide();
+                        else
+                            $(this).show();
+
+                    });
+                });
+            });
+        }
+
+        function showRowCount(parentEl, maxRows, pageNum, totalRows) {
+            var end_index = maxRows * pageNum;
+            var start_index = maxRows * (pageNum - 1) + parseFloat(1);
+            var text = `${start_index} to ${end_index} of ${totalRows} entries`;
+            $(parentEl).children('.row_count').html(text);
+        }
+
+    </script>
+
+}

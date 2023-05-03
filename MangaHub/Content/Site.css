@@ -1,6 +1,20 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #eee;
+}
+
+table th, table td {
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    background-color: #e4e3e3;
+}
+
+th {
+    background: #333;
+    color: #fff;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,21 +43,19 @@ textarea {
 
 
 /* Page-level styles*/
-.mangas {
+.manga-list {
     list-style: none;
 }
 
-.manga-image {
-    width:100%;
-    height:100%;
+
+.manga-list .pagination-container {
+    width: : 70%;
+    float: left;
 }
 
-.picture {
-    width:500px; 
-    height:500px;
-}
-
-.border {
-    border-color: blue;
-    border-style: solid;
+.manga-list .row_count {
+    width: 20%;
+    float: right;
+    text-align: center;
+    color: #999;
 }

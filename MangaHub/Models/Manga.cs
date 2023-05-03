@@ -22,7 +22,7 @@ namespace MangaHub.Models
         public DateTime DateCreated { get; set; }
         [Required]
         public byte[] Picture { get; set; }
-        public IEnumerable<Chapter> Chapters { get; set; }
+        public ICollection<Chapter> Chapters { get; private set; }
         public Manga()
         {
             Chapters = new Collection<Chapter>();
