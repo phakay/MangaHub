@@ -42,3 +42,8 @@ textarea {
     width:500px; 
     height:500px;
 }
+
+.border {
+    border-color: blue;
+    border-style: solid;
+}

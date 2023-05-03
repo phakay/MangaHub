@@ -4,22 +4,41 @@
 }
 
 
-<ul class="mangas">
-    @foreach(var manga in Model.Mangas)
-    {
-        <li>
-            <div class="picture">
-                @{ 
-                    var base64String = Convert.ToBase64String(manga.Picture);
-                    var imgStringSrc = $"data:image/jpg;base64,{base64String}";
-                }
-                <img src=@imgStringSrc class="manga-image" />
+<div class="container">
+    <div class="row pb-4 backgroundWhite">
+        @foreach(var manga in Model.Mangas)
+        { 
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-lg-8">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h1 class="text-warning">@manga.Title</h1>
+                                        <h3 style="color: #bbb9b9">Uploaded: @manga.DateCreated.ToString("d MMM yyyy HH:mm")</h3>
+                                    </div>
+                                    <div class="col-12">
+                                        @*TODO: implement display of chapters uploaded*@
+                                        <p>No Chapters exists...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4 text-right">
+                                <h2 class="text-warning">by: @manga.Artist.Name</h2>
+                                @{
+                                    var base64String = Convert.ToBase64String(manga.Picture);
+                                    var imageSrc = string.Format("data:imaga/jpg;base64,{0}", base64String);
+                                }
+                                <img src=@imageSrc class="card-img-top p-2 rounded" style="width:100%" />
+                                <p>@manga.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="details">
-                <p><strong>Title: </strong>@manga.Title</p>
-                <p><strong>Artist Name: </strong>@manga.Artist.Name</p>
-                <p><strong>Description: </strong>@manga.Description</p>
-            </div>
-        </li>
-    }
-</ul>
+
+        }
+
+    </div>
+</div>
