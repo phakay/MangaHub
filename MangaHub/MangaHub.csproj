@@ -181,8 +181,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Migrations\202305030937090_EditManagaTable.cs" />
+    <Compile Include="Migrations\202305030937090_EditManagaTable.Designer.cs">
+      <DependentUpon>202305030937090_EditManagaTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305030958199_AddChaptersTable.cs" />
+    <Compile Include="Migrations\202305030958199_AddChaptersTable.Designer.cs">
+      <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chapter.cs" />
     <Compile Include="Models\ViewModels\MangaViewModel.cs" />
     <Compile Include="Migrations\202305021053337_EditMangaTable.cs" />
     <Compile Include="Migrations\202305021053337_EditMangaTable.Designer.cs">
@@ -283,6 +293,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Chapters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -315,6 +326,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305021738356_EditApplicationUser.resx">
       <DependentUpon>202305021738356_EditApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305030937090_EditManagaTable.resx">
+      <DependentUpon>202305030937090_EditManagaTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305030958199_AddChaptersTable.resx">
+      <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
