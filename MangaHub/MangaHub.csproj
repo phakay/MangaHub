@@ -181,6 +181,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.cs" />
     <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.Designer.cs">
       <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
@@ -247,6 +248,13 @@
     <Compile Include="Core\Models\ApplicationUser.cs" />
     <Compile Include="Core\ViewModels\ManageViewModels.cs" />
     <Compile Include="Core\Models\Manga.cs" />
+    <Compile Include="Core\Repositories\IChapterRepository.cs" />
+    <Compile Include="Core\Repositories\IGenreRepository.cs" />
+    <Compile Include="Core\Repositories\IMangaRepository.cs" />
+    <Compile Include="Persistence\Repositories\MangaRepository.cs" />
+    <Compile Include="Persistence\Repositories\ChapterRepository.cs" />
+    <Compile Include="Persistence\Repositories\GenreRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

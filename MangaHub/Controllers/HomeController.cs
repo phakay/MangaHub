@@ -1,7 +1,6 @@
 ﻿using MangaHub.Core.ViewModels;
 using MangaHub.Persistence;
-using System.Data.Entity;
-using System.Linq;
+using MangaHub.Persistence.Repositories;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -9,19 +8,19 @@ namespace MangaHub.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly MangaRepository _mangaRepo;
+
 
         public HomeController()
         {
             _context = new ApplicationDbContext();
+            _mangaRepo = new MangaRepository(_context);
         }
         public ActionResult Index()
         {
             var viewModel = new MangaViewModel()
             {
-                Mangas = _context.Mangas
-                .Include(m => m.Artist)
-                .Include(m => m.Chapters)
-                .ToList()
+                Mangas = _mangaRepo.GetMangaWithChapters()
             };
 
             return View(viewModel);
