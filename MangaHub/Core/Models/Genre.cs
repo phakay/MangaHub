@@ -1,4 +1,4 @@
-﻿namespace MangaHub.Models
+﻿namespace MangaHub.Core.Models
 {
     public class Genre
     {

@@ -2,14 +2,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MangaHub.Models
+namespace MangaHub.Core.Models
 {
     public class Chapter
     {
         public Manga Manga { get; set; }
-        [Key, Column(Order =1)]
+        [Key, Column(Order = 1)]
         public int MangaId { get; set; }
-        [Key, Column(Order =0)]
+        [Key, Column(Order = 0)]
         public int ChapterNo { get; set; }
         public int NumberOfPages { get; set; }
         public string Information { get; set; }

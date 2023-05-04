@@ -1,5 +1,6 @@
-﻿using MangaHub.Models;
-using MangaHub.Models.ViewModels;
+﻿using MangaHub.Core.Models;
+using MangaHub.Core.ViewModels;
+using MangaHub.Persistence;
 using Microsoft.AspNet.Identity;
 using System;
 using System.IO;

@@ -1,4 +1,4 @@
-﻿namespace MangaHub.Models.Dtos
+﻿namespace MangaHub.Core.Dtos
 {
     public class ChapterDto
     {

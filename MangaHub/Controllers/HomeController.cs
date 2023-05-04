@@ -1,5 +1,5 @@
-﻿using MangaHub.Models;
-using MangaHub.Models.ViewModels;
+﻿using MangaHub.Core.ViewModels;
+using MangaHub.Persistence;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;

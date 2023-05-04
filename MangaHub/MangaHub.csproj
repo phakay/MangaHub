@@ -181,72 +181,72 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Migrations\202305031226314_EditChaptersTable3.cs" />
-    <Compile Include="Migrations\202305031226314_EditChaptersTable3.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.cs" />
+    <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.Designer.cs">
       <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dtos\ChapterDto.cs" />
+    <Compile Include="Core\Dtos\ChapterDto.cs" />
     <Compile Include="Controllers\Api\ChaptersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Migrations\202305030937090_EditManagaTable.cs" />
-    <Compile Include="Migrations\202305030937090_EditManagaTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305030937090_EditManagaTable.cs" />
+    <Compile Include="Persistence\Migrations\202305030937090_EditManagaTable.Designer.cs">
       <DependentUpon>202305030937090_EditManagaTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305030958199_AddChaptersTable.cs" />
-    <Compile Include="Migrations\202305030958199_AddChaptersTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305030958199_AddChaptersTable.cs" />
+    <Compile Include="Persistence\Migrations\202305030958199_AddChaptersTable.Designer.cs">
       <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305031054436_EditChaptersTable.cs" />
-    <Compile Include="Migrations\202305031054436_EditChaptersTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305031054436_EditChaptersTable.cs" />
+    <Compile Include="Persistence\Migrations\202305031054436_EditChaptersTable.Designer.cs">
       <DependentUpon>202305031054436_EditChaptersTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305031121284_EditChaptersTable1.cs" />
-    <Compile Include="Migrations\202305031121284_EditChaptersTable1.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305031121284_EditChaptersTable1.cs" />
+    <Compile Include="Persistence\Migrations\202305031121284_EditChaptersTable1.Designer.cs">
       <DependentUpon>202305031121284_EditChaptersTable1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305031132015_EditChaptersTable2.cs" />
-    <Compile Include="Migrations\202305031132015_EditChaptersTable2.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305031132015_EditChaptersTable2.cs" />
+    <Compile Include="Persistence\Migrations\202305031132015_EditChaptersTable2.Designer.cs">
       <DependentUpon>202305031132015_EditChaptersTable2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Chapter.cs" />
-    <Compile Include="Models\ViewModels\MangaViewModel.cs" />
-    <Compile Include="Migrations\202305021053337_EditMangaTable.cs" />
-    <Compile Include="Migrations\202305021053337_EditMangaTable.Designer.cs">
+    <Compile Include="Core\Models\Chapter.cs" />
+    <Compile Include="Core\ViewModels\MangaViewModel.cs" />
+    <Compile Include="Persistence\Migrations\202305021053337_EditMangaTable.cs" />
+    <Compile Include="Persistence\Migrations\202305021053337_EditMangaTable.Designer.cs">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305021738356_EditApplicationUser.cs" />
-    <Compile Include="Migrations\202305021738356_EditApplicationUser.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305021738356_EditApplicationUser.cs" />
+    <Compile Include="Persistence\Migrations\202305021738356_EditApplicationUser.Designer.cs">
       <DependentUpon>202305021738356_EditApplicationUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\MangaFormViewModel.cs" />
+    <Compile Include="Core\ViewModels\MangaFormViewModel.cs" />
     <Compile Include="Controllers\MangasController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305012042091_InitalModel.cs" />
-    <Compile Include="Migrations\202305012042091_InitalModel.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305012042091_InitalModel.cs" />
+    <Compile Include="Persistence\Migrations\202305012042091_InitalModel.Designer.cs">
       <DependentUpon>202305012042091_InitalModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305020718370_CreateMangaTable.cs" />
-    <Compile Include="Migrations\202305020718370_CreateMangaTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305020718370_CreateMangaTable.cs" />
+    <Compile Include="Persistence\Migrations\202305020718370_CreateMangaTable.Designer.cs">
       <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305020740516_PopulateGenreTable.cs" />
-    <Compile Include="Migrations\202305020740516_PopulateGenreTable.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305020740516_PopulateGenreTable.cs" />
+    <Compile Include="Persistence\Migrations\202305020740516_PopulateGenreTable.Designer.cs">
       <DependentUpon>202305020740516_PopulateGenreTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305020759077_OverriedDataConvention.cs" />
-    <Compile Include="Migrations\202305020759077_OverriedDataConvention.Designer.cs">
+    <Compile Include="Persistence\Migrations\202305020759077_OverriedDataConvention.cs" />
+    <Compile Include="Persistence\Migrations\202305020759077_OverriedDataConvention.Designer.cs">
       <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\ApplicationDbContext.cs" />
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Manga.cs" />
+    <Compile Include="Persistence\Migrations\Configuration.cs" />
+    <Compile Include="Core\ViewModels\AccountViewModels.cs" />
+    <Compile Include="Persistence\ApplicationDbContext.cs" />
+    <Compile Include="Core\Models\Genre.cs" />
+    <Compile Include="Core\Models\ApplicationUser.cs" />
+    <Compile Include="Core\ViewModels\ManageViewModels.cs" />
+    <Compile Include="Core\Models\Manga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -256,9 +256,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -313,10 +314,10 @@
     <Folder Include="Views\Chapters\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -326,40 +327,40 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202305012042091_InitalModel.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305012042091_InitalModel.resx">
       <DependentUpon>202305012042091_InitalModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305020718370_CreateMangaTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305020718370_CreateMangaTable.resx">
       <DependentUpon>202305020718370_CreateMangaTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305020740516_PopulateGenreTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305020740516_PopulateGenreTable.resx">
       <DependentUpon>202305020740516_PopulateGenreTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305020759077_OverriedDataConvention.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305020759077_OverriedDataConvention.resx">
       <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305021053337_EditMangaTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305021053337_EditMangaTable.resx">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305021738356_EditApplicationUser.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305021738356_EditApplicationUser.resx">
       <DependentUpon>202305021738356_EditApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305030937090_EditManagaTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305030937090_EditManagaTable.resx">
       <DependentUpon>202305030937090_EditManagaTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305030958199_AddChaptersTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305030958199_AddChaptersTable.resx">
       <DependentUpon>202305030958199_AddChaptersTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305031054436_EditChaptersTable.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305031054436_EditChaptersTable.resx">
       <DependentUpon>202305031054436_EditChaptersTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305031121284_EditChaptersTable1.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305031121284_EditChaptersTable1.resx">
       <DependentUpon>202305031121284_EditChaptersTable1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305031132015_EditChaptersTable2.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305031132015_EditChaptersTable2.resx">
       <DependentUpon>202305031132015_EditChaptersTable2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305031226314_EditChaptersTable3.resx">
+    <EmbeddedResource Include="Persistence\Migrations\202305031226314_EditChaptersTable3.resx">
       <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using MangaHub.Core.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
-namespace MangaHub.Models.ViewModels
+namespace MangaHub.Core.ViewModels
 {
     public class MangaFormViewModel
     {

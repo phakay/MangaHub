@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MangaHub.Models
+namespace MangaHub.Core.Models
 {
     public class Manga
     {

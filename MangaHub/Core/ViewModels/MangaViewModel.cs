@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using MangaHub.Core.Models;
+using System.Collections.Generic;
 
-namespace MangaHub.Models.ViewModels
+namespace MangaHub.Core.ViewModels
 {
     public class MangaViewModel
     {

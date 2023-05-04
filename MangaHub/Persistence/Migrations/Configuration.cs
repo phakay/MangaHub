@@ -1,18 +1,17 @@
-namespace MangaHub.Migrations
+namespace MangaHub.Persistence.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using MangaHub.Persistence;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MangaHub.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            MigrationsDirectory = @"Persistence\Migrations";
         }
 
-        protected override void Seed(MangaHub.Models.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

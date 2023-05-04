@@ -1,8 +1,8 @@
-﻿using MangaHub.Models;
-using MangaHub.Models.Dtos;
+﻿using MangaHub.Core.Dtos;
+using MangaHub.Core.Models;
+using MangaHub.Persistence;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -16,20 +16,7 @@ namespace MangaHub.Controllers.Api
         {
             _context = new ApplicationDbContext();
         }
-        
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
         [HttpPost]
         public IHttpActionResult Post(ChapterDto dto)
         {
