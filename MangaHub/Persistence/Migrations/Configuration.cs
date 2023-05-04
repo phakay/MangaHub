@@ -1,4 +1,4 @@
-namespace MangaHub.Persistence.Migrations
+namespace MangaHub.Migrations
 {
     using MangaHub.Persistence;
     using System.Data.Entity.Migrations;

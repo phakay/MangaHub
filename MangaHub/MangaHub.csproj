@@ -182,6 +182,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ChapterConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\MangaConfiguration.cs" />
     <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.cs" />
     <Compile Include="Persistence\Migrations\202305031226314_EditChaptersTable3.Designer.cs">
       <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>

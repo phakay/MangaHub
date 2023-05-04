@@ -9,6 +9,7 @@ namespace MangaHub.Core.ViewModels
     {
         [Required, MaxLength(255)]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
         public HttpPostedFileWrapper Picture { get; set; }
         [Required]

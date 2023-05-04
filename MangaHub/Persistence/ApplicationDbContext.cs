@@ -1,4 +1,5 @@
 ﻿using MangaHub.Core.Models;
+using MangaHub.Persistence.EntityConfigurations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
@@ -17,6 +18,14 @@ namespace MangaHub.Persistence
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new MangaConfiguration());
+            modelBuilder.Configurations.Add(new ChapterConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
