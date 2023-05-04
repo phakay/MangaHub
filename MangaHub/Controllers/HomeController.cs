@@ -1,6 +1,5 @@
 ﻿using MangaHub.Core;
 using MangaHub.Core.ViewModels;
-using MangaHub.Persistence;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -8,9 +7,9 @@ namespace MangaHub.Controllers
     public class HomeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
+            _unitOfWork = unitOfWork;
             
         }
         public ActionResult Index()

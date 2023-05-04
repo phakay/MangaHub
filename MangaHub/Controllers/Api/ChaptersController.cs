@@ -1,7 +1,6 @@
 ﻿using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
-using MangaHub.Persistence;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Web.Http;
@@ -12,9 +11,9 @@ namespace MangaHub.Controllers.Api
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public ChaptersController()
+        public ChaptersController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost]
