@@ -3,6 +3,7 @@ using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Linq;
 using System.Web.Http;
 
 namespace MangaHub.Controllers.Api
@@ -19,6 +20,15 @@ namespace MangaHub.Controllers.Api
         [HttpPost]
         public IHttpActionResult Add(ChapterDto dto)
         {
+            
+            if (!ModelState.IsValid)
+            {
+                var errorMessage = string.Join(" | ", ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage));
+                return BadRequest();
+            }
+
             if (dto is null)
                 return BadRequest();
 
