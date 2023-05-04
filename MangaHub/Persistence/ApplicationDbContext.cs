@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace MangaHub.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public DbSet<Manga> Mangas { get; set; }
         public DbSet<Genre> Genres { get; set; }

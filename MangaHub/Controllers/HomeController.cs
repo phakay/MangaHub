@@ -1,26 +1,23 @@
-﻿using MangaHub.Core.ViewModels;
+﻿using MangaHub.Core;
+using MangaHub.Core.ViewModels;
 using MangaHub.Persistence;
-using MangaHub.Persistence.Repositories;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly MangaRepository _mangaRepo;
-
-
+        private readonly IUnitOfWork _unitOfWork;
         public HomeController()
         {
-            _context = new ApplicationDbContext();
-            _mangaRepo = new MangaRepository(_context);
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
+            
         }
         public ActionResult Index()
         {
             var viewModel = new MangaViewModel()
             {
-                Mangas = _mangaRepo.GetMangaWithChapters()
+                Mangas = _unitOfWork.MangaRepo.GetMangaWithChapters()
             };
 
             return View(viewModel);

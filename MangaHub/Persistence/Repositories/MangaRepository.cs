@@ -8,9 +8,9 @@ namespace MangaHub.Persistence.Repositories
 {
     public class MangaRepository : Repository<Manga>, IMangaRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public MangaRepository(ApplicationDbContext context)
+        public MangaRepository(IApplicationDbContext context)
             : base(context.Mangas)
         {
             _context = context;

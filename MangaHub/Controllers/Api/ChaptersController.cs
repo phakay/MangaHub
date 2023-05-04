@@ -1,7 +1,7 @@
-﻿using MangaHub.Core.Dtos;
+﻿using MangaHub.Core;
+using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
 using MangaHub.Persistence;
-using MangaHub.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Web.Http;
@@ -10,15 +10,11 @@ namespace MangaHub.Controllers.Api
 {
     public class ChaptersController : ApiController
     {
-        private readonly ApplicationDbContext _context;
-        private readonly MangaRepository _mangaRepo;
-        private readonly ChapterRepository _chapterRepo;
+        private readonly IUnitOfWork _unitOfWork;
 
         public ChaptersController()
         {
-            _context = new ApplicationDbContext();
-            _mangaRepo = new MangaRepository(_context);
-            _chapterRepo = new ChapterRepository(_context);
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
         [HttpPost]
@@ -29,7 +25,7 @@ namespace MangaHub.Controllers.Api
 
             var userId = User.Identity.GetUserId();
 
-            var manga = _mangaRepo.GetManga(dto.MangaId);
+            var manga = _unitOfWork.MangaRepo.GetManga(dto.MangaId);
 
             if (manga == null)
                 return NotFound();
@@ -37,7 +33,7 @@ namespace MangaHub.Controllers.Api
             if (manga.ArtistId != userId)
                 return Unauthorized();
 
-            if (_chapterRepo.GetChapterForManga(dto.MangaId, dto.ChapterNo) != null)
+            if (_unitOfWork.ChapterRepo.GetChapterForManga(dto.MangaId, dto.ChapterNo) != null)
                 return BadRequest($"The Chapter {dto.ChapterNo} already exists for the specified Manga");
 
             var mangaChapter = new Chapter
@@ -48,9 +44,9 @@ namespace MangaHub.Controllers.Api
                 Information = dto.Information,
                 DateTime = DateTime.Now
             };
+            _unitOfWork.ChapterRepo.Add(mangaChapter);
 
-            _chapterRepo.Add(mangaChapter);
-            _context.SaveChanges();
+            _unitOfWork.Complete();
 
             return Ok();
         }

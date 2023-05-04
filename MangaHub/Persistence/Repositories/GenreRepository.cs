@@ -7,9 +7,9 @@ namespace MangaHub.Persistence.Repositories
 {
     public class GenreRepository : Repository<Genre>, IGenreRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
-        public GenreRepository(ApplicationDbContext context) : base(context.Genres)
+        public GenreRepository(IApplicationDbContext context) : base(context.Genres)
         {
             _context = context;
         }

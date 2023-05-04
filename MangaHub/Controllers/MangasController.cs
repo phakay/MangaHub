@@ -1,7 +1,7 @@
-﻿using MangaHub.Core.Models;
+﻿using MangaHub.Core;
+using MangaHub.Core.Models;
 using MangaHub.Core.ViewModels;
 using MangaHub.Persistence;
-using MangaHub.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
 using System;
 using System.IO;
@@ -12,15 +12,11 @@ namespace MangaHub.Controllers
 {
     public class MangasController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly GenreRepository _genreRepo;
-        private readonly MangaRepository _mangaRepo;
+        private readonly IUnitOfWork _unitOfWork;
 
         public MangasController()
         {
-            _context = new ApplicationDbContext();
-            _genreRepo = new GenreRepository(_context);
-            _mangaRepo = new MangaRepository(_context);
+            _unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
         [Authorize]
@@ -42,7 +38,7 @@ namespace MangaHub.Controllers
 
             if (!ModelState.IsValid)
             {
-                viewModel.Genres = _genreRepo.GetGenres();
+                viewModel.Genres = _unitOfWork.GenreRepo.GetGenres();
                 return View("Create", viewModel);
             }
 
@@ -54,7 +50,7 @@ namespace MangaHub.Controllers
                 if (!isExtensionValid)
                 {
                     ModelState.AddModelError("Picture", "The file extension is invalid.");
-                    viewModel.Genres = _genreRepo.GetGenres();
+                    viewModel.Genres = _unitOfWork.GenreRepo.GetGenres();
                     return View("Create", viewModel);
                 }
 
@@ -75,9 +71,8 @@ namespace MangaHub.Controllers
                 Picture = imageData
             };
 
-            _mangaRepo.Add(manga);
-            _context.Mangas.Add(manga);
-            _context.SaveChanges();
+            _unitOfWork.MangaRepo.Add(manga);
+            _unitOfWork.Complete();
 
             return RedirectToAction("Index", "Home");
         }
