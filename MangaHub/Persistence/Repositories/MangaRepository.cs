@@ -22,12 +22,16 @@ namespace MangaHub.Persistence.Repositories
                             .SingleOrDefault(m => m.Id == id);
         }
 
-        public IEnumerable<Manga> GetMangaWithChapters()
+        public IEnumerable<Manga> GetMangaWithChapters(string userId = null)
         {
-            return _context.Mangas
+            var query = _context.Mangas
                             .Include(m => m.Artist)
-                            .Include(m => m.Chapters)
-                            .ToList();
+                            .Include(m => m.Chapters);
+
+            if (userId != null)
+                query.Where(m => m.ArtistId == userId);
+
+            return query.ToList();
         }
     }
 }

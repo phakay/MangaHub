@@ -1,34 +1,38 @@
 ﻿@model IEnumerable<MangaHub.Core.Models.Manga>
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Mine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>My Manga List</h2>
 
 <div class="container manga-list">
     <div class="row pb-4 backgroundWhite">
-        @foreach(var manga in Model)
-        { 
+        @foreach (var manga in Model)
+        {
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-4">
-                        <h2 class="text-warning">@manga.Title</h2>
+                        <h3 class="text-warning">@manga.Title</h3>
                         @{
                             var base64String = Convert.ToBase64String(manga.Picture);
                             var imageSrc = string.Format("data:imaga/jpg;base64,{0}", base64String);
                         }
                         <img src=@imageSrc class="card-img-top p-2 rounded" style="width:100%" />
                         <p>@manga.Description</p>
+                        <div class="actions">
+                            <a>Edit</a>
+                            <a>Delete</a>
+                        </div>
                     </div>
                     <div class="col-12 col-lg-8">
                         <div class="row">
                             <div class="col-12">
-                                <h3 class="text-warning">by: @manga.Artist.Name</h3>
                                 <h3 style="color: #bbb9b9">Uploaded: @manga.DateCreated.ToString("d MMM yyyy HH:mm")</h3>
                             </div>
                             <div class="col-12">
                                 @if (manga.Chapters.Any())
                                 {
-
                                     <table class="table table-striped manga-table">
                                         <thead>
                                             <tr>

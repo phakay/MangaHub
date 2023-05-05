@@ -77,6 +77,13 @@ namespace MangaHub.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
+        public ActionResult Mine()
+        {
+            var mangas = _unitOfWork.MangaRepo
+                .GetMangaWithChapters(User.Identity.GetUserId());
 
+            return View(mangas);
+        }
     }
 }
