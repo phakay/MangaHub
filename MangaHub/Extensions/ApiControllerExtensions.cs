@@ -2,7 +2,7 @@
 using System.Security.Principal;
 using System.Web.Http;
 
-namespace MangaHub.Tests.Extensions
+namespace MangaHub.Extensions
 {
     public static class ApiControllerExtensions
     {

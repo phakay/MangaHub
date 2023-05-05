@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using MangaHub.Core.Models;
+using MangaHub.Extensions;
 using MangaHub.Persistence;
 using MangaHub.Persistence.Repositories;
-using MangaHub.Tests.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Data.Entity;

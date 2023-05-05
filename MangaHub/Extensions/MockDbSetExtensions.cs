@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace MangaHub.Tests.Extensions
+namespace MangaHub.Extensions
 {
     public static class MockDbSetExtensions
     {

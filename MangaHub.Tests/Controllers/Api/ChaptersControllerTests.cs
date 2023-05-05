@@ -4,7 +4,7 @@ using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
 using MangaHub.Core.Repositories;
-using MangaHub.Tests.Extensions;
+using MangaHub.Extensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Web.Http.Results;
