@@ -239,7 +239,6 @@
       <DependentUpon>202305031132015_EditChaptersTable2.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Models\Chapter.cs" />
-    <Compile Include="Core\ViewModels\MangaViewModel.cs" />
     <Compile Include="Persistence\Migrations\202305021053337_EditMangaTable.cs" />
     <Compile Include="Persistence\Migrations\202305021053337_EditMangaTable.Designer.cs">
       <DependentUpon>202305021053337_EditMangaTable.cs</DependentUpon>

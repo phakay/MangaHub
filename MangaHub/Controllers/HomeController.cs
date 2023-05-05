@@ -1,5 +1,4 @@
 ﻿using MangaHub.Core;
-using MangaHub.Core.ViewModels;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -12,14 +11,10 @@ namespace MangaHub.Controllers
             _unitOfWork = unitOfWork;
             
         }
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var viewModel = new MangaViewModel()
-            {
-                Mangas = _unitOfWork.MangaRepo.GetMangaWithChapters()
-            };
-
-            return View(viewModel);
+            var mangas = _unitOfWork.MangaRepo.GetMangaWithChapters();
+            return View(mangas);
         }
 
         public ActionResult About()

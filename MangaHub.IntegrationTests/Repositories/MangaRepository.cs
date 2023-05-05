@@ -22,7 +22,7 @@ namespace MangaHub.IntegrationTests.Repositories
 
         }
 
-        [Test]
+        [Test, Isolated]
         public void Add_ValidData_MangaShouldBeAdded()
         {
             var manga = new Manga
