@@ -24,8 +24,8 @@
             <div class="manga-picture">
                 @{
                     @Html.HiddenFor(m => m.Picture)
-                    var imgSrc = $"data:image/jpg;base64,{Convert.ToBase64String(Model.Picture)}";
-                    <img src=@imgSrc />
+                    var imageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Picture));
+                    <img src=@imageSrc />
                 }
             </div>
         </div>

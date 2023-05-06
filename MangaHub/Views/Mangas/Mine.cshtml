@@ -16,8 +16,7 @@
                         <h3 class="text-warning">@manga.Title</h3>
                         <div class="manga-picture">
                             @{
-                                var base64String = Convert.ToBase64String(manga.Picture);
-                                var imageSrc = string.Format("data:imaga/jpg;base64,{0}", base64String);
+                                var imageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(manga.Picture));
                             }
                             <img src=@imageSrc />
                         </div>

@@ -43,13 +43,9 @@ textarea {
 
 
 /* Page-level styles*/
-.manga-list {
-    list-style: none;
-}
-
 
 .manga-list .pagination-container {
-    width: : 70%;
+    width: 70%;
     float: left;
 }
 
@@ -64,6 +60,14 @@ textarea {
     width: 250px;
 }
 
-.manga-picture  img {
+.manga-picture > img {
     width: 100%;
+}
+
+.manga-list .actions {
+    display: none;
+}
+
+.manga-list >:hover .actions {
+    display: block;
 }
