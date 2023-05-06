@@ -23,6 +23,26 @@ namespace MangaHub.IntegrationTests.Repositories
         }
 
         [Test, Isolated]
+        public void GetManga_ValidMangaId_MangaShouldBeReturned()
+        {
+            var manga = new Manga
+            {
+                Artist = _context.Users.First(),
+                DateCreated = DateTime.Now,
+                Title = "-",
+                Description = "",
+                Genre = _context.Genres.First(),
+                Picture = new byte[0]
+            };
+
+            _context.Mangas.Add(manga);
+            _context.SaveChanges();
+
+            _repo.GetManga(manga.Id)
+                .Should().Be(manga);
+        }
+
+        [Test, Isolated]
         public void Add_ValidData_MangaShouldBeAdded()
         {
             var manga = new Manga

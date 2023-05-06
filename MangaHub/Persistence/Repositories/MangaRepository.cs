@@ -19,6 +19,7 @@ namespace MangaHub.Persistence.Repositories
         public Manga GetManga(int id)
         {
             return _context.Mangas
+                            .Include(g => g.Genre)
                             .SingleOrDefault(m => m.Id == id);
         }
 

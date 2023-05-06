@@ -14,15 +14,16 @@
                 <div class="row">
                     <div class="col-12 col-lg-4">
                         <h3 class="text-warning">@manga.Title</h3>
-                        @{
-                            var base64String = Convert.ToBase64String(manga.Picture);
-                            var imageSrc = string.Format("data:imaga/jpg;base64,{0}", base64String);
-                        }
-                        <img src=@imageSrc class="card-img-top p-2 rounded" style="width:100%" />
+                        <div class="manga-picture">
+                            @{
+                                var base64String = Convert.ToBase64String(manga.Picture);
+                                var imageSrc = string.Format("data:imaga/jpg;base64,{0}", base64String);
+                            }
+                            <img src=@imageSrc />
+                        </div>
                         <p>@manga.Description</p>
                         <div class="actions">
-                            <a>Edit</a>
-                            <a>Delete</a>
+                            <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })">Edit</a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-8">

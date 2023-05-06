@@ -20,5 +20,13 @@ namespace MangaHub.Core.Models
         {
             Chapters = new Collection<Chapter>();
         }
+
+        public void Update(Manga objToUpdate)
+        {
+            Title = objToUpdate.Title;
+            Description = objToUpdate.Description;
+            GenreId = objToUpdate.GenreId;
+            Picture = objToUpdate.Picture;
+        }
     }
 }
