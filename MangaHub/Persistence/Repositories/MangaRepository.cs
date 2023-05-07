@@ -27,6 +27,7 @@ namespace MangaHub.Persistence.Repositories
         {
             var query = _context.Mangas
                             .Include(m => m.Artist)
+                            .Include(m => m.Genre)
                             .Include(m => m.Chapters);
 
             if (userId != null)

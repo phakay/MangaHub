@@ -20,6 +20,7 @@
                             }
                             <img src=@imageSrc />
                         </div>
+                        <h4>@manga.Genre.Name</h4>
                         <p>@manga.Description</p>
                         <div class="actions">
                             <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })">Edit</a> |
