@@ -203,7 +203,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ChaptersController.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\ViewModels\ChapterFormViewModel.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\MockDbSetExtensions.cs" />
     <Compile Include="Persistence\EntityConfigurations\ChapterConfiguration.cs" />
@@ -345,10 +347,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Mangas\MangaForm.cshtml" />
     <Content Include="Views\Mangas\Mine.cshtml" />
+    <Content Include="Views\Chapters\ChapterForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Chapters\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />

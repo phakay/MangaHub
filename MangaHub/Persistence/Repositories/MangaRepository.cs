@@ -30,7 +30,7 @@ namespace MangaHub.Persistence.Repositories
                             .Include(m => m.Chapters);
 
             if (userId != null)
-                query.Where(m => m.ArtistId == userId);
+                query = query.Where(m => m.ArtistId == userId);
 
             return query.ToList();
         }

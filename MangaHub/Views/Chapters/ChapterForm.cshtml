@@ -1,0 +1,49 @@
+﻿@model MangaHub.Core.ViewModels.ChapterFormViewModel
+@{
+    ViewBag.Title = "Add Chapter";
+}
+
+<h2>Add a Chapter</h2>
+
+
+@using (Html.BeginForm("Create", "Chapters", FormMethod.Post, new { @class = "row" }))
+{
+    @Html.HiddenFor(m => m.MangaId)
+    @Html.HiddenFor(m => m.MangaTitle)
+    @Html.HiddenFor(m => m.MangaPicture)
+
+    <div class="col-12 col-lg-12">
+        <h2>@Model.MangaTitle</h2>
+    </div>
+
+    if (Model.MangaPicture != null && Model.MangaPicture.Length > 0)
+    {
+        <div class="col-12 col-lg-4">
+            <div class="manga-picture">
+                @{
+                    var imageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.MangaPicture));
+                    <img src=@imageSrc />
+                }
+            </div>
+        </div>
+    }
+    <div class="col-12 col-lg-8">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Information)
+            @Html.TextBoxFor(m => m.Information, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Information)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ChapterNo)
+            @Html.TextBoxFor(m => m.ChapterNo, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.ChapterNo)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.NumberOfPages)
+            @Html.TextBoxFor(m => m.NumberOfPages, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.NumberOfPages)
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Add</button>
+    </div>
+}
+

@@ -22,7 +22,8 @@
                         </div>
                         <p>@manga.Description</p>
                         <div class="actions">
-                            <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })">Edit</a>
+                            <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })">Edit</a> |
+                            <a href="@Url.Action("Create","Chapters", new { mangaId = manga.Id })">Add Chapter</a>
                         </div>
                     </div>
                     <div class="col-12 col-lg-8">
