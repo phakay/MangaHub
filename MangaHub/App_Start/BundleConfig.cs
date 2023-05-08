@@ -23,7 +23,9 @@ namespace MangaHub
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/lib/bootstrap/bootstrap.css",
+                      "~/Content/lib/font-awesome/free-v4-shims.min.css",
+                      "~/Content/lib/font-awesome/free.min.css",
                       "~/Content/site.css"));
         }
     }

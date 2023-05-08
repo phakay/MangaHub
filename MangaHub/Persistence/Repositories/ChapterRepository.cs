@@ -1,5 +1,6 @@
 ﻿using MangaHub.Core.Models;
 using MangaHub.Core.Repositories;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MangaHub.Persistence.Repositories
@@ -21,5 +22,10 @@ namespace MangaHub.Persistence.Repositories
                             c.ChapterNo == chapterNo);
         }
 
+        public IEnumerable<Chapter> GetChaptersForManga(int mangaId)
+        {
+            return _context.Chapters
+                .Where(c => c.MangaId == mangaId).ToList();
+        }
     }
 }

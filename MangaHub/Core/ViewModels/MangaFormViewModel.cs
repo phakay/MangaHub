@@ -33,5 +33,7 @@ namespace MangaHub.Core.ViewModels
                 return (action.Body as MethodCallExpression).Method.Name;
             }
         }
+
+        public IEnumerable<Chapter> Chapters { get; set; }
     }
 }

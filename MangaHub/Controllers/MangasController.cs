@@ -106,7 +106,8 @@ namespace MangaHub.Controllers
                 Description = manga.Description,
                 Genre = manga.GenreId,
                 Genres = _unitOfWork.GenreRepo.GetGenres(),
-                Picture = manga.Picture
+                Picture = manga.Picture,
+                Chapters = _unitOfWork.ChapterRepo.GetChaptersForManga(manga.Id)
             };
 
             return View("MangaForm",viewModel);

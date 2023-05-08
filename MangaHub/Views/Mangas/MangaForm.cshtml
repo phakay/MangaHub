@@ -30,7 +30,7 @@
             </div>
         </div>
     }
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-4">
         <div class="form-group">
             @Html.LabelFor(m => m.Title)
             @Html.TextBoxFor(m => m.Title, new { @class = "form-control", autofocus = "autofocus" })
@@ -53,5 +53,57 @@
         </div>
         <button type="submit" class="btn btn-primary btn-lg">Save</button>
     </div>
+    if (Model.Id > 0 && Model.Chapters.Any())
+    {
+        <div class="col-12 col-lg-4">
+            <table class="table table-striped manga-table">
+                <thead>
+                    <tr>
+                        <th>Chapter No.</th>
+                        <th>Pages</th>
+                        <th>Information</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var chap in Model.Chapters)
+                    {
+                        <tr>
+                            <td>@chap.ChapterNo</td>
+                            <td>@chap.NumberOfPages</td>
+                            <td>@chap.Information</td>
+                            <td>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-danger text-white" style="cursor:pointer;">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>     
+                                </div>
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="pagination-container">
+                <nav>
+                    <ul class="pagination"></ul>
+                </nav>
+            </div>
+            <div class="row_count"></div>
+        </div>
+
+    }
+
+}
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            applyPagination();
+        });
+    </script>
+
 }
 
