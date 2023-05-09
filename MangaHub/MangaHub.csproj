@@ -300,6 +300,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\chaptersController.js" />
+    <Content Include="Scripts\app\services\chapterService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Content\fonts\free-fa-regular-400.ttf" />

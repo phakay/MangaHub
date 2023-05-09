@@ -55,7 +55,7 @@
     </div>
     if (Model.Id > 0 && Model.Chapters.Any())
     {
-        <div class="col-12 col-lg-4">
+        <div id="chapters-table" class="col-12 col-lg-4">
             <table class="table table-striped manga-table">
                 <thead>
                     <tr>
@@ -104,29 +104,8 @@
     <script>
         $(document).ready(function () {
             applyPagination();
-        });
 
-
-        $(document).ready(function () {
-            $(".js-delete-chapter").on("click", function (e) {
-
-                let link = $(this);
-
-                if (confirm("Are you sure you want to delete this chapter?")) {
-                    $.ajax({
-                        url: "/api/chapters?key=" + link.attr("data-chapter-keycode"),
-                        method: "DELETE"
-
-                    }).done(function () {
-                        link.closest("tr").fadeOut(function () {
-                            $(this).remove();
-                            applyPagination();
-                        });
-                    }).fail(function (res) {
-                        alert("Something failed!: " + res.responseText);
-                    });
-                }
-            });
+            ChaptersController.init('#chapters-table');
         })
     </script>
 
