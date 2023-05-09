@@ -4,7 +4,11 @@
     $('.manga-table').each(function () {
         var currentTable = this;
         var parent = $(this).parent();
+        $(parent).find('.pagination').html('');
         var totalRows = $(this).children('tbody').children('tr').length;
+
+        showNRowsOfTable(currentTable, maxRows, 1);
+        showRowCount(parent, maxRows, 1, totalRows);
 
         if (totalRows > maxRows) {
             var pages = Math.ceil(totalRows / maxRows);
@@ -14,9 +18,6 @@
                             </span></li>`)
                     .show();
             }
-
-            showNRowsOfTable(currentTable, maxRows, 1);
-            showRowCount(parent, maxRows, 1, totalRows);
 
             $(parent).find('.pagination li:first-child').addClass('active');
 

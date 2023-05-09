@@ -30,8 +30,7 @@ namespace MangaHub.Controllers
             return View("MangaForm",viewModel);
         }
 
-        [HttpPost]
-        [Authorize, ValidateAntiForgeryToken]
+        [HttpPost, Authorize, ValidateAntiForgeryToken]
         public ActionResult Create(MangaFormViewModel viewModel)
         {
             if (!ModelState.IsValid)

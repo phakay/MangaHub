@@ -17,7 +17,7 @@ namespace MangaHub.Controllers.Api
             _unitOfWork = unitOfWork;
          }
 
-        [HttpPost]
+        [HttpPost, Authorize]
         public IHttpActionResult Add(ChapterDto dto)
         {
             
@@ -58,6 +58,43 @@ namespace MangaHub.Controllers.Api
             _unitOfWork.Complete();
 
             return Ok();
+        }
+
+        [HttpDelete, Authorize]
+        public IHttpActionResult RemoveChapterForManga(string key)
+        {
+            var chapterKeyArray = key.Split('_');
+            
+            if(chapterKeyArray.Length != 2 || 
+                !int.TryParse(chapterKeyArray[0], out var mangaId) ||
+                !int.TryParse(chapterKeyArray[1], out var chapterNo)
+                )  
+            {
+                return BadRequest($"value for {nameof(key)} is not valid");
+            }
+
+
+            var userId = User.Identity.GetUserId();
+
+            var manga = _unitOfWork.MangaRepo.GetManga(mangaId);
+
+            if (manga == null)
+                return NotFound();
+
+            if (manga.ArtistId != userId)
+                return Unauthorized();
+
+            var chapter = _unitOfWork.ChapterRepo.GetChapterForManga(mangaId, chapterNo);
+
+            if (chapter == null)
+                return NotFound();
+
+            _unitOfWork.ChapterRepo.Remove(chapter);
+
+            _unitOfWork.Complete();
+
+            return Ok();
+
         }
     }
 }

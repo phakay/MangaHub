@@ -10,5 +10,12 @@ namespace MangaHub.Core.Models
         public int NumberOfPages { get; set; }
         public string Information { get; set; }
         public DateTime DateTime { get; set; }
+        public string KeyCode
+        { 
+            get 
+            {
+                return $"{MangaId}_{ChapterNo}";
+            } 
+        }
     }
 }
