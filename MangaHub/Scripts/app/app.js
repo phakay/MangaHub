@@ -2,10 +2,10 @@
     var maxRows = 10;
 
     $('.manga-table').each(function () {
-        var currentTable = this;
-        var parent = $(this).parent();
+        var currentTable = $(this);
+        var parent = currentTable.parent();
         $(parent).find('.pagination').html('');
-        var totalRows = $(this).children('tbody').children('tr').length;
+        var totalRows = currentTable.children('tbody').children('tr').length;
 
         showNRowsOfTable(currentTable, maxRows, 1);
         showRowCount(parent, maxRows, 1, totalRows);
@@ -32,12 +32,21 @@
 
             });
         }
+
+        if (totalRows == 0) {
+            currentTable.fadeOut(function () {
+                $(this).remove();
+            });
+            $(parent).find('.pagination').html('');
+            $(parent).find('.row_count').html('');
+            $(parent).prepend("<p>No Chapter exists...</p>")
+        }
     });
 }
 
 function showNRowsOfTable(tableEl, maxRows, pageNum) {
     let trIndex = 1;
-    $(tableEl).children('tbody').children('tr').each(function () {
+    tableEl.children('tbody').children('tr').each(function () {
         if (trIndex > maxRows * pageNum || trIndex <= maxRows * (pageNum - 1))
             $(this).hide();
         else

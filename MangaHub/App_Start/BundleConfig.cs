@@ -9,8 +9,8 @@ namespace MangaHub
         {
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                         "~/Scripts/app/app.js",
-                        "~/Scripts/app/services/chapterService.js",
-                        "~/Scripts/app/controllers/chaptersController.js"));
+                        "~/Scripts/app/services/*Service.js",
+                        "~/Scripts/app/controllers/*Controller.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",

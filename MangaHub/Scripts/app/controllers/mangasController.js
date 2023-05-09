@@ -1,22 +1,22 @@
-﻿var ChaptersController = function (chapterService) {
+﻿var MangasController = function (mangaService) {
     
     var init = function (container) {
-        $(container).on("click", ".js-delete-chapter", addDeleteHandler);
+        $(container).on("click", ".js-delete-manga", addDeleteHandler);
     };
+
 
     var addDeleteHandler = function (e) {
         if (confirm("Are you sure you want to delete this chapter?")) {
             link = $(this);
-            var keycode = link.attr("data-chapter-keycode");
+            var id = link.attr("data-manga-id");
 
             var done = function () {
-                link.closest("tr").fadeOut(function () {
+                link.closest(".manga-pane").fadeOut(function () {
                     $(this).remove();
-                    applyPagination();
                 });
             };
 
-            chapterService.removeChapterForManga(keycode, done, fail);
+            mangaService.deleteManga(id, done, fail);
         }
     };
 
@@ -28,4 +28,4 @@
     return {
         init: init
     };
-}(ChapterService);
+}(MangaService);

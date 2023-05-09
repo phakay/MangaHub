@@ -55,7 +55,7 @@
     </div>
     if (Model.Id > 0 && Model.Chapters.Any())
     {
-        <div id="chapters-table" class="col-12 col-lg-4">
+        <div class="col-12 col-lg-4 chapters-pane">
             <table class="table table-striped manga-table">
                 <thead>
                     <tr>
@@ -74,9 +74,8 @@
                             <td>@chap.Information</td>
                             <td>
                                 <div class="text-center">
-                                    <a href="#" class="btn btn-danger text-white js-delete-chapter" 
-                                       data-chapter-keycode ="@chap.KeyCode"
-                                       style="cursor:pointer;">
+                                    <a href="#" class="btn btn-danger js-delete-chapter" 
+                                       data-chapter-keycode ="@chap.KeyCode">
                                         <i class="far fa-trash-alt"></i>
                                     </a>     
                                 </div>
@@ -105,7 +104,7 @@
         $(document).ready(function () {
             applyPagination();
 
-            ChaptersController.init('#chapters-table');
+            ChaptersController.init('.chapters-pane');
         })
     </script>
 

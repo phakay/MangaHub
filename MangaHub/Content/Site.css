@@ -68,6 +68,10 @@ textarea {
     display: none;
 }
 
-.manga-list .container > div:hover .actions {
+.manga-list .manga-pane > div:hover .actions {
     display: block;
+}
+
+.actions {
+    margin: 2px 0;
 }
