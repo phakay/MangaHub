@@ -275,6 +275,10 @@
     <Compile Include="Persistence\Migrations\202305111723259_PopulateRolesTable.Designer.cs">
       <DependentUpon>202305111723259_PopulateRolesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\202305111816534_EditUserTable.cs" />
+    <Compile Include="Persistence\Migrations\202305111816534_EditUserTable.Designer.cs">
+      <DependentUpon>202305111816534_EditUserTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -419,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305111723259_PopulateRolesTable.resx">
       <DependentUpon>202305111723259_PopulateRolesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305111816534_EditUserTable.resx">
+      <DependentUpon>202305111816534_EditUserTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

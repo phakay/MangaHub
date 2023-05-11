@@ -153,13 +153,12 @@ namespace MangaHub.Controllers
                 {
                     UserName = model.Email, 
                     Email = model.Email,
-                    Name = model.Name,
-                    IsArtist = model.IsArtist
-                
+                    Name = model.Name
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, model.IsArtist ? "Artist" : "Reader");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
