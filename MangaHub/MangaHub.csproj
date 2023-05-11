@@ -271,6 +271,10 @@
     <Compile Include="Persistence\Migrations\202305020759077_OverriedDataConvention.Designer.cs">
       <DependentUpon>202305020759077_OverriedDataConvention.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\202305111723259_PopulateRolesTable.cs" />
+    <Compile Include="Persistence\Migrations\202305111723259_PopulateRolesTable.Designer.cs">
+      <DependentUpon>202305111723259_PopulateRolesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305031226314_EditChaptersTable3.resx">
       <DependentUpon>202305031226314_EditChaptersTable3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305111723259_PopulateRolesTable.resx">
+      <DependentUpon>202305111723259_PopulateRolesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
