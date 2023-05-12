@@ -34,6 +34,8 @@ th {
 }
 
 
+
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -74,4 +76,12 @@ textarea {
 
 .actions {
     margin: 2px 0;
+}
+
+
+.add-manga-btn {
+    position: fixed;
+    top: 10%;
+    right: 20%;
+    z-index: 1;
 }

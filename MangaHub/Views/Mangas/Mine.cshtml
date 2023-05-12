@@ -5,9 +5,9 @@
 }
 
 <h2>My Manga List</h2>
-
+<a href="@Url.Action("Create", "Mangas")" title="Add a Manga" class="btn btn-success btn-lg add-manga-btn"><i class="glyphicon glyphicon-plus"></i></a>
 <div class="container manga-list">
-    <div class="row pb-4 backgroundWhite">
+    <div class="row">
         @foreach (var manga in Model)
         {
             <div class="manga-pane">
