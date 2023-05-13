@@ -40,7 +40,6 @@ namespace MangaHub.IntegrationTests.Controllers
                 Artist = user,
                 Picture = new byte[0],
                 Genre = _context.Genres.First(),
-                DateCreated = DateTime.Now,
                 Title = "-",
                 Description = "-"
             };
@@ -51,7 +50,6 @@ namespace MangaHub.IntegrationTests.Controllers
             {
                 Manga = manga,
                 ChapterNo = 1,
-                DateTime = DateTime.Now,
                 Information = "-",
                 NumberOfPages = 150
             };

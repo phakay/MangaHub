@@ -1,8 +1,8 @@
-﻿using MangaHub.Core;
+﻿using AutoMapper;
+using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -45,16 +45,9 @@ namespace MangaHub.Controllers.Api
             if (_unitOfWork.ChapterRepo.GetChapterForManga(dto.MangaId, dto.ChapterNo) != null)
                 return BadRequest($"The Chapter {dto.ChapterNo} already exists for the specified Manga");
 
-            var mangaChapter = new Chapter
-            {
-                MangaId = dto.MangaId,
-                ChapterNo = dto.ChapterNo,
-                NumberOfPages = dto.NumberOfPages,
-                Information = dto.Information,
-                DateTime = DateTime.Now
-            };
-            _unitOfWork.ChapterRepo.Add(mangaChapter);
+            var mangaChapter = Mapper.Map<ChapterDto, Chapter>(dto);
 
+            _unitOfWork.ChapterRepo.Add(mangaChapter);
             _unitOfWork.Complete();
 
             return Ok();

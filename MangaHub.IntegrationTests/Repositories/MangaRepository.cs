@@ -3,7 +3,6 @@ using MangaHub.Core.Models;
 using MangaHub.Persistence;
 using MangaHub.Persistence.Repositories;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace MangaHub.IntegrationTests.Repositories
@@ -28,7 +27,6 @@ namespace MangaHub.IntegrationTests.Repositories
             var manga = new Manga
             {
                 Artist = _context.Users.First(),
-                DateCreated = DateTime.Now,
                 Title = "-",
                 Description = "",
                 Genre = _context.Genres.First(),
@@ -48,7 +46,6 @@ namespace MangaHub.IntegrationTests.Repositories
             var manga = new Manga
             {
                 Artist = _context.Users.First(),
-                DateCreated = DateTime.Now,
                 Title = "-",
                 Description = "",
                 Genre = _context.Genres.First(),

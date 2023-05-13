@@ -3,7 +3,6 @@ using MangaHub.Core.Models;
 using MangaHub.Core.ViewModels;
 using MangaHub.Persistence;
 using Microsoft.AspNet.Identity;
-using System;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
@@ -66,7 +65,6 @@ namespace MangaHub.Controllers
                 Title = viewModel.Title,
                 Description = viewModel.Description,
                 ArtistId = User.Identity.GetUserId(),
-                DateCreated = DateTime.Now,
                 GenreId = viewModel.Genre,
                 Picture = imageData
             };
@@ -157,7 +155,6 @@ namespace MangaHub.Controllers
                 Title = viewModel.Title,
                 Description = viewModel.Description,
                 ArtistId = User.Identity.GetUserId(),
-                DateCreated = DateTime.Now,
                 GenreId = viewModel.Genre,
                 Picture = imageData
             });

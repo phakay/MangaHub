@@ -10,8 +10,12 @@ namespace MangaHub.Core.Models
         public int ChapterNo { get; set; }
         public int NumberOfPages { get; set; }
         public string Information { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime { get; private set; }
 
+        public Chapter()
+        {
+            DateTime = DateTime.Now;
+        }
         public string KeyCode
         { 
             get 

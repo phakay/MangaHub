@@ -5,7 +5,6 @@ using MangaHub.Core.Models;
 using MangaHub.Extensions;
 using MangaHub.Persistence;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace MangaHub.IntegrationTests.Controllers.Api
@@ -38,7 +37,6 @@ namespace MangaHub.IntegrationTests.Controllers.Api
                 Artist = user,
                 Picture = new byte[0],
                 GenreId = 1,
-                DateCreated = DateTime.Now,
                 Title = "-",
                 Description = "-"
             };

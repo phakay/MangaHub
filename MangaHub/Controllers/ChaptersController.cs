@@ -1,8 +1,8 @@
-﻿using MangaHub.Core;
+﻿using AutoMapper;
+using MangaHub.Core;
 using MangaHub.Core.Models;
 using MangaHub.Core.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -56,16 +56,8 @@ namespace MangaHub.Controllers
                     $"The Chapter {viewModel.ChapterNo} already exists for the specified Manga");
                 return View("ChapterForm", viewModel);
             }
-                
 
-            var mangaChapter = new Chapter
-            {
-                MangaId = viewModel.MangaId,
-                ChapterNo = viewModel.ChapterNo,
-                NumberOfPages = viewModel.NumberOfPages,
-                Information = viewModel.Information,
-                DateTime = DateTime.Now
-            };
+            var mangaChapter = Mapper.Map<ChapterFormViewModel, Chapter>(viewModel);
             _unitOfWork.ChapterRepo.Add(mangaChapter);
 
             _unitOfWork.Complete();

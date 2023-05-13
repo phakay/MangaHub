@@ -13,12 +13,13 @@ namespace MangaHub.Core.Models
         public string Description { get; set; }
         public Genre Genre { get; set; }
         public byte GenreId { get; set; }
-        public DateTime DateCreated { get; set; }
+        public DateTime DateCreated { get; private set; }
         public byte[] Picture { get; set; }
         public ICollection<Chapter> Chapters { get; private set; }
         public ICollection<Reading> Readings { get; private set; }
         public Manga()
         {
+            DateCreated = DateTime.Now;
             Chapters = new Collection<Chapter>();
             Readings = new Collection<Reading>();
         }
