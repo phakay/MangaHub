@@ -4,17 +4,19 @@ namespace MangaHub.Core.Models
 {
     public class Chapter
     {
+        public const char KeyCodeDelimiter = '_';
         public Manga Manga { get; set; }
         public int MangaId { get; set; }
         public int ChapterNo { get; set; }
         public int NumberOfPages { get; set; }
         public string Information { get; set; }
         public DateTime DateTime { get; set; }
+
         public string KeyCode
         { 
             get 
             {
-                return $"{MangaId}_{ChapterNo}";
+                return $"{MangaId}{KeyCodeDelimiter}{ChapterNo}";
             } 
         }
     }

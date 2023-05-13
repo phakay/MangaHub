@@ -63,7 +63,8 @@ namespace MangaHub.Controllers.Api
         [HttpDelete, Authorize]
         public IHttpActionResult RemoveChapterForManga(string key)
         {
-            var chapterKeyArray = key.Split('_');
+            var chapterKeyArray = key.Split(Chapter.KeyCodeDelimiter);
+            
             
             if(chapterKeyArray.Length != 2 || 
                 !int.TryParse(chapterKeyArray[0], out var mangaId) ||

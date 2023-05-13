@@ -11,7 +11,7 @@ namespace MangaHub.Persistence
         public IMangaRepository MangaRepo { get; set; }
         public IChapterRepository ChapterRepo { get; set; }
         public IGenreRepository GenreRepo { get; set; }
-
+        public IReadingRepository ReadingRepo { get ; set ; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -19,6 +19,7 @@ namespace MangaHub.Persistence
             MangaRepo = new MangaRepository(_context);
             ChapterRepo = new ChapterRepository(_context);
             GenreRepo = new GenreRepository(_context);
+            ReadingRepo = new ReadingRepository(_context);
         }
 
         public void Complete()

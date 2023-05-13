@@ -85,3 +85,15 @@ textarea {
     right: 20%;
     z-index: 1;
 }
+
+.manga-title > h2{
+    display: inline-block;
+}
+
+.manga-title .manga-title-divider {
+    font-size: 2em;
+}
+
+.manga-title .book{
+    font-size: 2em;
+}

@@ -8,5 +8,6 @@ namespace MangaHub.Persistence
         DbSet<Chapter> Chapters { get; set; }
         DbSet<Genre> Genres { get; set; }
         DbSet<Manga> Mangas { get; set; }
+        DbSet<Reading> Readings { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace MangaHub.Persistence
         public DbSet<Manga> Mangas { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Chapter> Chapters { get; set; }
+        public DbSet<Reading> Readings { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -24,6 +26,7 @@ namespace MangaHub.Persistence
         {
             modelBuilder.Configurations.Add(new MangaConfiguration());
             modelBuilder.Configurations.Add(new ChapterConfiguration());
+            modelBuilder.Configurations.Add(new ReadingConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

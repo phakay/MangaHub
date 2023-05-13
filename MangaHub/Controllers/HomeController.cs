@@ -1,4 +1,8 @@
 ﻿using MangaHub.Core;
+using MangaHub.Core.Models;
+using MangaHub.Core.ViewModels;
+using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -13,8 +17,19 @@ namespace MangaHub.Controllers
         }
         public ViewResult Index()
         {
-            var mangas = _unitOfWork.MangaRepo.GetMangaWithChapters();
-            return View(mangas);
+            var viewModel = new MangasViewModel
+            {
+                Mangas = _unitOfWork.MangaRepo.GetMangaWithChapters(),
+                ShowInfo = User.Identity.IsAuthenticated,
+                UserReadings = User.Identity.IsAuthenticated ? _unitOfWork.ReadingRepo
+                                .GetReadingsForUser(User.Identity.GetUserId())
+                                    .ToLookup(r => r.MangaId) : 
+                                Enumerable.Empty<Reading>()
+                                    .ToLookup(r => r.MangaId)
+
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()

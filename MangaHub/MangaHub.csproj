@@ -203,12 +203,18 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ReadingsController.cs" />
     <Compile Include="Controllers\Api\MangasController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Core\ViewModels\MangasViewModel.cs" />
+    <Compile Include="Core\Dtos\ReadingDto.cs" />
+    <Compile Include="Core\Models\Reading.cs" />
+    <Compile Include="Core\Repositories\IReadingRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\ViewModels\ChapterFormViewModel.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\MockDbSetExtensions.cs" />
+    <Compile Include="Persistence\EntityConfigurations\ReadingConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ChapterConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\MangaConfiguration.cs" />
     <Compile Include="Persistence\IApplicationDbContext.cs" />
@@ -279,6 +285,10 @@
     <Compile Include="Persistence\Migrations\202305111816534_EditUserTable.Designer.cs">
       <DependentUpon>202305111816534_EditUserTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\202305121738296_AddReadingTable.cs" />
+    <Compile Include="Persistence\Migrations\202305121738296_AddReadingTable.Designer.cs">
+      <DependentUpon>202305121738296_AddReadingTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -289,6 +299,7 @@
     <Compile Include="Core\Repositories\IChapterRepository.cs" />
     <Compile Include="Core\Repositories\IGenreRepository.cs" />
     <Compile Include="Core\Repositories\IMangaRepository.cs" />
+    <Compile Include="Persistence\Repositories\ReadingRepository.cs" />
     <Compile Include="Persistence\Repositories\MangaRepository.cs" />
     <Compile Include="Persistence\Repositories\ChapterRepository.cs" />
     <Compile Include="Persistence\Repositories\GenreRepository.cs" />
@@ -426,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305111816534_EditUserTable.resx">
       <DependentUpon>202305111816534_EditUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305121738296_AddReadingTable.resx">
+      <DependentUpon>202305121738296_AddReadingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
