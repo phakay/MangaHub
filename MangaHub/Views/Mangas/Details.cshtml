@@ -19,7 +19,7 @@
         </div>
         @if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
         {
-            <a class="js-toggle-reading actions btn btn-lg @(Model.IsReading? "btn-info" : "btn-default")" title="@(Model.IsReading? "Reading":"Read")"
+            <a class="js-toggle-reading theme-font-color actions btn btn-lg @(Model.IsReading? "btn-info" : "btn-default")" title="@(Model.IsReading? "Reading":"Read")"
                data-manga-id="@Model.Manga.Id">
                 <i class="fa @(Model.IsReading? "fa-book-reader": "fa-book")"></i>
             </a>

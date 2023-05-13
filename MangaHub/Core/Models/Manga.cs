@@ -16,9 +16,11 @@ namespace MangaHub.Core.Models
         public DateTime DateCreated { get; set; }
         public byte[] Picture { get; set; }
         public ICollection<Chapter> Chapters { get; private set; }
+        public ICollection<Reading> Readings { get; private set; }
         public Manga()
         {
             Chapters = new Collection<Chapter>();
+            Readings = new Collection<Reading>();
         }
 
         public void Update(Manga objToUpdate)

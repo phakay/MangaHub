@@ -7,7 +7,7 @@
     var toggleReading = function (e) {
         var link = $(this);
         var id = link.attr("data-manga-id");
-        var title = '';
+        var title = link.prop('title');
         var done = function () {
             link.toggleClass('btn-info')
                 .toggleClass('btn-default')

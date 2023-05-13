@@ -37,5 +37,16 @@ namespace MangaHub.Persistence.Repositories
 
             return query.ToList();
         }
+
+        public IEnumerable<Manga> GetMangasReadByUser(string userId)
+        {
+            return _context.Readings
+                .Where(r => r.UserId == userId)
+                .Select(r => r.Manga)
+                    .Include(m => m.Artist)
+                    .Include(m => m.Genre)
+                    .Include(m => m.Chapters)
+                    .ToList();
+        }
     }
 }

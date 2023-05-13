@@ -7,5 +7,6 @@ namespace MangaHub.Core.Repositories
     {
         Reading GetReadingForManga(int mangaId, string userId);
         IEnumerable<Reading> GetReadingsForUser(string userId);
+        
     }
 }

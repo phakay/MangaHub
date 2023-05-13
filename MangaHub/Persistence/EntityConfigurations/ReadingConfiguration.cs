@@ -11,7 +11,7 @@ namespace MangaHub.Persistence.EntityConfigurations
             HasKey(r => new { r.MangaId, r.UserId });
 
             HasRequired(r => r.Manga)
-                .WithMany()
+                .WithMany(m => m.Readings)
                 .WillCascadeOnDelete(false);
         }
     }

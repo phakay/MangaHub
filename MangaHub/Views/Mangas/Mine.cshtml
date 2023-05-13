@@ -5,7 +5,11 @@
 }
 
 <h2>My Manga List</h2>
-<a href="@Url.Action("Create", "Mangas")" title="Add a Manga" class="btn btn-success btn-lg add-manga-btn"><i class="glyphicon glyphicon-plus"></i></a>
+@if (User.IsInRole("Artist"))
+{
+    <a href="@Url.Action("Create", "Mangas")" title="Add a Manga" class="btn btn-success btn-lg add-manga-btn"><i class="glyphicon glyphicon-plus"></i></a>
+}
+
 <div class="container manga-list">
     <div class="row">
         @foreach (var manga in Model)
@@ -24,16 +28,18 @@
                             }
                             <img src=@imageSrc />
                         </div>
-                        <div class="actions">
-                            <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })" title="Edit Manga" class="btn btn-success"><i class="far fa-edit"></i></a>
-                            <a href="@Url.Action("Create","Chapters", new { mangaId = manga.Id })" title="Add a Chapter" class="btn btn-success">
-                                <i class="glyphicon glyphicon-plus"></i>
-                            </a>
-                            <a href="#" class="btn btn-danger js-delete-manga" data-manga-id="@manga.Id" title="Delete Manga"><i class="far fa-trash-alt"></i></a>
-                        </div>
+                        @if (User.IsInRole("Artist"))
+                        {
+                            <div class="actions">
+                                <a href="@Url.Action("Edit","Mangas", new { id = manga.Id })" title="Edit Manga" class="btn btn-success"><i class="far fa-edit"></i></a>
+                                <a href="@Url.Action("Create","Chapters", new { mangaId = manga.Id })" title="Add a Chapter" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                </a>
+                                <a href="#" class="btn btn-danger js-delete-manga" data-manga-id="@manga.Id" title="Delete Manga"><i class="far fa-trash-alt"></i></a>
+                            </div>
+                        }
                         <h4>@manga.Genre.Name</h4>
                         <p>@manga.Description</p>
-
                     </div>
                     <div class="col-12 col-lg-8">
                         <div class="row">

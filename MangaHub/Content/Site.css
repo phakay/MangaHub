@@ -112,3 +112,16 @@ textarea {
 .inline-block{
     display: inline-block;
 }
+
+.theme-font-color {
+    color: #a66b6b;
+    background-color: #fff;
+}
+
+.theme-font-color:hover, .theme-font-color:focus, 
+.theme-font-color:active, 
+.theme-font-color:active:hover {
+    color: #fff;
+    background-color: #a66b6b;
+    border-color: #a66b6b;
+}
