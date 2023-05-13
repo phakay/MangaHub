@@ -81,7 +81,7 @@ namespace MangaHub.Controllers
         public ActionResult Mine()
         {
             var mangas = _unitOfWork.MangaRepo
-                .GetMangaWithChapters(User.Identity.GetUserId());
+                .GetMangasWithChapters(User.Identity.GetUserId());
 
             return View(mangas);
         }
@@ -163,6 +163,28 @@ namespace MangaHub.Controllers
             _unitOfWork.Complete();
 
             return RedirectToAction("Mine", "Mangas");
+        }
+
+        public ActionResult Details(int id)
+        {
+            var manga = _unitOfWork.MangaRepo.GetManga(id);
+
+            if (manga == null)
+                return HttpNotFound();
+
+            var viewModel = new MangaDetailsViewModel
+            {
+                Manga = manga
+            };
+
+            if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
+            {
+                viewModel.IsReading = _unitOfWork.ReadingRepo
+                    .GetReadingForManga(manga.Id, User.Identity.GetUserId()) != null;
+
+            }
+
+            return View(viewModel);
         }
     }
 }

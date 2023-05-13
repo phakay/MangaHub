@@ -1,0 +1,96 @@
+﻿@model MangaHub.Core.ViewModels.MangaDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+
+<div class="row">
+    @if (Model.Manga.Picture != null)
+    {
+    <div class="col-12 col-lg-4">
+        <div class="manga-picture">
+            @{
+                var imageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Manga.Picture));
+                <img src=@imageSrc />
+            }
+        </div>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
+        {
+            <a class="actions btn btn-lg @(Model.IsReading? "btn-info" : "btn-default")" title="@(Model.IsReading? "Reading":"Read")"
+               data-manga-id="@Model.Manga.Id">
+                <i class="fa @(Model.IsReading? "fa-book-reader": "fa-book")"></i>
+            </a>
+        }
+
+    </div>
+    }
+
+    <div class="col-12 col-lg-4">
+        <div class="manga-title">
+            <h2>@Model.Manga.Title</h2>
+            <div class="float-right">
+                <h3>
+                    | by: @Model.Manga.Artist.Name
+                    @if(User.Identity.IsAuthenticated && User.IsInRole("Reader"))
+                    {
+                        <a class="btn btn-lg @(Model.IsFollowing? "btn-info" : "btn-default")" title="@(Model.IsFollowing? "Following":"Follow")"
+                           data-artist-id="@Model.Manga.Artist.Id">
+                            <i class="fa @(Model.IsFollowing? "fa-minus" : "fa-plus")"></i>
+                        </a>
+                    }
+                </h3>
+            </div>
+        </div>
+        <p>@Model.Manga.Description</p>
+        <h4>@Model.Manga.Genre.Name</h4>
+    </div>
+
+    @if (Model.Manga.Chapters.Any())
+    {
+
+        <div class="col-12 col-lg-4 chapters-pane">
+            <table class="table table-striped manga-table">
+                <thead>
+                    <tr>
+                        <th>Chapter No.</th>
+                        <th>Pages</th>
+                        <th>Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var chap in Model.Manga.Chapters)
+                    {
+                        <tr>
+                            <td>@chap.ChapterNo</td>
+                            <td>@chap.NumberOfPages</td>
+                            <td>@chap.Information</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="pagination-container">
+                <nav>
+                    <ul class="pagination"></ul>
+                </nav>
+            </div>
+            <div class="row_count"></div>
+        </div>
+    }
+</div>
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            applyPagination();
+        })
+    </script>
+
+}
+
+

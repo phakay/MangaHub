@@ -86,14 +86,19 @@ textarea {
     z-index: 1;
 }
 
-.manga-title > h2{
+.manga-title > a:hover {
+    text-decoration: none;
+}
+
+.manga-title > h2, .manga-title > a > h2 {
     display: inline-block;
 }
 
-.manga-title .manga-title-divider {
+.manga-title .manga-title-divider, .manga-title .book {
     font-size: 2em;
 }
 
-.manga-title .book{
-    font-size: 2em;
+
+.float-right{
+    float: right;
 }

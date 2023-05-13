@@ -206,6 +206,7 @@
     <Compile Include="Controllers\Api\ReadingsController.cs" />
     <Compile Include="Controllers\Api\MangasController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
     <Compile Include="Core\ViewModels\MangasViewModel.cs" />
     <Compile Include="Core\Dtos\ReadingDto.cs" />
     <Compile Include="Core\Models\Reading.cs" />
@@ -378,6 +379,7 @@
     <Content Include="Views\Mangas\MangaForm.cshtml" />
     <Content Include="Views\Mangas\Mine.cshtml" />
     <Content Include="Views\Chapters\ChapterForm.cshtml" />
+    <Content Include="Views\Mangas\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

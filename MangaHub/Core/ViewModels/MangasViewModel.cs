@@ -9,5 +9,11 @@ namespace MangaHub.Core.ViewModels
         public IEnumerable<Manga> Mangas { get; set; }
         public bool ShowInfo { get; set; }
         public ILookup<int,Reading> UserReadings { get; set; }
+
+        public MangasViewModel()
+        {
+            UserReadings = Enumerable.Empty<Reading>()
+                                    .ToLookup(r => r.MangaId);
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-@model MangaHub.Core.ViewModels.MangasViewModel
+﻿@model MangaHub.Core.ViewModels.MangasViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -13,18 +12,17 @@
                 <div class="row">
                     <div class="col-12 col-lg-4">
                         <div class="manga-title">
-                            <h2 class="text-warning">@manga.Title</h2>
-                            @if (Model.ShowInfo && User.IsInRole("Reader"))
+                            <a title="Detail" href="@Url.Action("Details","Mangas",new {id = manga.Id })">
+                                <h2 class="text-warning">@manga.Title</h2>
+                            </a>
+                            @if (Model.ShowInfo)
                             {
                                 <span class="manga-title-divider">|</span>
-                                if (Model.UserReadings.Contains(manga.Id))
-                                {
-                                    <a class="book" title="Reading"><i class="fa fa-book-reader"></i></a>
-                                }
-                                else
-                                {
-                                    <a class="book" title="Read"><i class="fa fa-book"></i></a>
-                                }
+                                
+                                var isReading = Model.UserReadings.Contains(manga.Id);
+                                <a class="book" title="@(isReading? "Reading":"Read")">
+                                    <i class="fa @(isReading? "fa-book-reader": "fa-book")"></i>
+                                </a>
                             }
                         </div>
                         <div class="manga-picture">

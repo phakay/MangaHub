@@ -13,7 +13,11 @@
             <div class="manga-pane">
                 <div class="row">
                     <div class="col-12 col-lg-4">
-                        <h3 class="text-warning">@manga.Title</h3>
+                        <div class="manga-title">
+                            <a title="Detail" href="@Url.Action("Details","Mangas",new {id = manga.Id })">
+                                <h2 class="text-warning">@manga.Title</h2>
+                            </a>
+                        </div>
                         <div class="manga-picture">
                             @{
                                 var imageSrc = string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(manga.Picture));

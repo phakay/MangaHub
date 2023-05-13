@@ -20,10 +20,12 @@ namespace MangaHub.Persistence.Repositories
         {
             return _context.Mangas
                             .Include(g => g.Genre)
+                            .Include(m => m.Artist)
+                            .Include(m => m.Chapters)
                             .SingleOrDefault(m => m.Id == id);
         }
 
-        public IEnumerable<Manga> GetMangaWithChapters(string userId = null)
+        public IEnumerable<Manga> GetMangasWithChapters(string userId = null)
         {
             var query = _context.Mangas
                             .Include(m => m.Artist)
