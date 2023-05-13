@@ -213,6 +213,7 @@
     <Compile Include="Core\Repositories\IReadingRepository.cs" />
     <Compile Include="Core\Repositories\IRepository.cs" />
     <Compile Include="Core\ViewModels\ChapterFormViewModel.cs" />
+    <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\MockDbSetExtensions.cs" />
     <Compile Include="Persistence\EntityConfigurations\ReadingConfiguration.cs" />

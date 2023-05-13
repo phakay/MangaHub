@@ -81,18 +81,9 @@ namespace MangaHub.Controllers
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
-            var mangas = Enumerable.Empty<Manga>();
-
-            if (User.IsInRole("Reader"))
-            {
-                mangas = _unitOfWork.MangaRepo
-                    .GetMangasReadByUser(userId);
-            }
-            else
-            {
-                mangas = _unitOfWork.MangaRepo
-                .GetMangasWithChapters(userId);
-            }
+            var mangas = User.IsInRole("Reader") ? 
+                _unitOfWork.MangaRepo.GetMangasReadByUser(userId) :
+                 _unitOfWork.MangaRepo.GetMangasWithChapters(userId);
             
             return View(mangas);
         }

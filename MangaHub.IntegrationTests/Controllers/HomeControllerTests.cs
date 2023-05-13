@@ -1,10 +1,11 @@
 ﻿using FluentAssertions;
 using MangaHub.Controllers;
 using MangaHub.Core.Models;
+using MangaHub.Core.ViewModels;
+using MangaHub.Extensions;
 using MangaHub.Persistence;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace MangaHub.IntegrationTests.Controllers
@@ -31,8 +32,9 @@ namespace MangaHub.IntegrationTests.Controllers
         [Test, Isolated]
         public void Index_WhenCallded_ShouldReturnListOfMangasWithChapters()
         {
-
             var user = _context.Users.First();
+            _controller.MockCurrentUser(user.Id, user.UserName);
+
             var manga = new Manga
             {
                 Artist = user,
@@ -58,10 +60,10 @@ namespace MangaHub.IntegrationTests.Controllers
             _context.SaveChanges();
 
             var result = _controller.Index()
-                .ViewData.Model as IEnumerable<Manga>;
+                .ViewData.Model as MangasViewModel;
 
-            result.Should().HaveCount(1);
-            result.First().Chapters.Should().HaveCount(1);
+            result.Mangas.Should().HaveCount(1);
+            result.Mangas.First().Chapters.Should().HaveCount(1);
 
         }
     }
