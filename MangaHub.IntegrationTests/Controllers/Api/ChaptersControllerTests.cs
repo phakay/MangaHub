@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using AutoMapper;
+using FluentAssertions;
+using MangaHub.App_Start;
 using MangaHub.Controllers.Api;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
@@ -18,6 +20,8 @@ namespace MangaHub.IntegrationTests.Controllers.Api
         [SetUp]
         public void SetUp()
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
             _context = new ApplicationDbContext();
             _controller = new ChaptersController(new UnitOfWork(_context));
         }

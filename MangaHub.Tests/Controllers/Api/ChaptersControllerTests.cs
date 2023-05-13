@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿using AutoMapper;
+using FluentAssertions;
+using MangaHub.App_Start;
 using MangaHub.Controllers.Api;
 using MangaHub.Core;
 using MangaHub.Core.Dtos;
@@ -22,6 +24,8 @@ namespace MangaHub.Tests.Controllers.Api
         [TestInitialize]
         public void TestInitialize()
         {
+            Mapper.Initialize(c => c.AddProfile<MappingProfile>());
+
             _mockChapterRepository = new Mock<IChapterRepository>();
             _mockMangaRepository = new Mock<IMangaRepository>();
 
