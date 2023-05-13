@@ -6,7 +6,7 @@
 
     var addDeleteHandler = function (e) {
         if (confirm("Are you sure you want to delete this chapter?")) {
-            link = $(this);
+            var link = $(this);
             var keycode = link.attr("data-chapter-keycode");
 
             var done = function () {

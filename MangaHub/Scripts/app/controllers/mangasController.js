@@ -7,7 +7,7 @@
 
     var addDeleteHandler = function (e) {
         if (confirm("Are you sure you want to delete this chapter?")) {
-            link = $(this);
+            var link = $(this);
             var id = link.attr("data-manga-id");
 
             var done = function () {

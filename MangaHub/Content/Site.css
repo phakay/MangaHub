@@ -33,6 +33,10 @@ th {
     font-weight: bold;
 }
 
+hr {
+    border-top: 1px solid #a66b6b;
+}
+
 
 
 
@@ -86,7 +90,8 @@ textarea {
     z-index: 1;
 }
 
-.manga-title > a:hover {
+.manga-title > a:hover,
+.manga-title > a:focus {
     text-decoration: none;
 }
 
@@ -96,9 +101,14 @@ textarea {
 
 .manga-title .manga-title-divider, .manga-title .book {
     font-size: 2em;
+    color: #a66b6b;
 }
 
 
 .float-right{
     float: right;
+}
+
+.inline-block{
+    display: inline-block;
 }
