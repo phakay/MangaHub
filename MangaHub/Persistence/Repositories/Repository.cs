@@ -5,8 +5,8 @@ namespace MangaHub.Persistence.Repositories
 {
     public class Repository<T>  : IRepository<T> where T: class
     {
-        private readonly DbSet<T> _dbSet;
-        public Repository(DbSet<T> dbSet)
+        private readonly IDbSet<T> _dbSet;
+        public Repository(IDbSet<T> dbSet)
         {
             _dbSet = dbSet;
         }

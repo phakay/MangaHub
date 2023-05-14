@@ -8,6 +8,8 @@ namespace MangaHub.Core
         IGenreRepository GenreRepo { get; set; }
         IMangaRepository MangaRepo { get; set; }
         IReadingRepository ReadingRepo { get; set; }
+        IFollowingRespository FollowingRepo { get; set; }
+        IUserRepository UserRepo { get; set; }
 
         void Complete();
     }

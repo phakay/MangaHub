@@ -207,9 +207,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\FollowingsController.cs" />
     <Compile Include="Controllers\Api\ReadingsController.cs" />
     <Compile Include="Controllers\Api\MangasController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Core\Dtos\FollowingDto.cs" />
+    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Core\Repositories\IFollowingRespository.cs" />
+    <Compile Include="Core\Models\Following.cs" />
     <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
     <Compile Include="Core\ViewModels\MangasViewModel.cs" />
     <Compile Include="Core\Dtos\ReadingDto.cs" />
@@ -220,6 +225,7 @@
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\ApiControllerExtensions.cs" />
     <Compile Include="Extensions\MockDbSetExtensions.cs" />
+    <Compile Include="Persistence\EntityConfigurations\FollowingConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ReadingConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\ChapterConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\MangaConfiguration.cs" />
@@ -295,6 +301,10 @@
     <Compile Include="Persistence\Migrations\202305121738296_AddReadingTable.Designer.cs">
       <DependentUpon>202305121738296_AddReadingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\202305131853395_AddFollowingsTable.cs" />
+    <Compile Include="Persistence\Migrations\202305131853395_AddFollowingsTable.Designer.cs">
+      <DependentUpon>202305131853395_AddFollowingsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -305,6 +315,8 @@
     <Compile Include="Core\Repositories\IChapterRepository.cs" />
     <Compile Include="Core\Repositories\IGenreRepository.cs" />
     <Compile Include="Core\Repositories\IMangaRepository.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\Repositories\FollowingRepository.cs" />
     <Compile Include="Persistence\Repositories\ReadingRepository.cs" />
     <Compile Include="Persistence\Repositories\MangaRepository.cs" />
     <Compile Include="Persistence\Repositories\ChapterRepository.cs" />
@@ -326,9 +338,11 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controllers\followingsController.js" />
     <Content Include="Scripts\app\controllers\readingsController.js" />
     <Content Include="Scripts\app\controllers\mangasController.js" />
     <Content Include="Scripts\app\controllers\chaptersController.js" />
+    <Content Include="Scripts\app\services\followingService.js" />
     <Content Include="Scripts\app\services\readingService.js" />
     <Content Include="Scripts\app\services\mangaService.js" />
     <Content Include="Scripts\app\services\chapterService.js" />
@@ -449,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305121738296_AddReadingTable.resx">
       <DependentUpon>202305121738296_AddReadingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305131853395_AddFollowingsTable.resx">
+      <DependentUpon>202305131853395_AddFollowingsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

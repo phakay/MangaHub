@@ -35,7 +35,7 @@
                 <h3 class="inline-block">| by: @Model.Manga.Artist.Name</h3>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
                 {
-                    <a class="js-toggle-follow actions btn btn-lg @(Model.IsFollowing? "btn-info" : "btn-default")" title="@(Model.IsFollowing? "Following":"Follow")"
+                    <a class="js-toggle-following theme-font-color actions btn btn-lg @(Model.IsFollowing? "btn-info" : "btn-default")" title="@(Model.IsFollowing? "Following":"Follow")"
                        data-artist-id="@Model.Manga.Artist.Id">
                         <i class="fa @(Model.IsFollowing? "fa-minus" : "fa-plus")"></i>
                     </a>
@@ -87,6 +87,7 @@
         $(document).ready(function () {
             applyPagination();
             ReadingsController.init('.detail-pane');
+            FollowingsController.init('.detail-pane');
         })
     </script>
 

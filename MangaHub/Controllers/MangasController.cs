@@ -176,11 +176,13 @@ namespace MangaHub.Controllers
                 Manga = manga
             };
 
-            if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
+            if (User.Identity.IsAuthenticated)
             {
                 viewModel.IsReading = _unitOfWork.ReadingRepo
                     .GetReadingForManga(manga.Id, User.Identity.GetUserId()) != null;
 
+                viewModel.IsFollowing = _unitOfWork.FollowingRepo
+                    .GetFollowing(User.Identity.GetUserId(), manga.ArtistId) != null;
             }
 
             return View(viewModel);

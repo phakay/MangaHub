@@ -4,7 +4,6 @@
         $(container).on("click", ".js-delete-manga", addDeleteHandler);
     };
 
-
     var addDeleteHandler = function (e) {
         if (confirm("Are you sure you want to delete this chapter?")) {
             var link = $(this);
@@ -19,7 +18,6 @@
             mangaService.deleteManga(id, done, fail);
         }
     };
-
 
     var fail = function (res) {
         alert("Something failed!: " + res.responseText);

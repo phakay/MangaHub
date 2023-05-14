@@ -8,18 +8,15 @@
         if (confirm("Are you sure you want to delete this chapter?")) {
             var link = $(this);
             var keycode = link.attr("data-chapter-keycode");
-
             var done = function () {
                 link.closest("tr").fadeOut(function () {
                     $(this).remove();
                     applyPagination();
                 });
             };
-
             chapterService.removeChapterForManga(keycode, done, fail);
         }
     };
-
 
     var fail = function (res) {
         alert("Something failed!: " + res.responseText);

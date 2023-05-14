@@ -1,12 +1,12 @@
-﻿var ReadingsController = function (readingService) {
+﻿var FollowingsController = function (followingService) {
     
     var init = function (container) {
-        $(container).on("click", ".js-toggle-reading", toggleReading);
+        $(container).on("click", ".js-toggle-following", togglefollowing);
     };
 
-    var toggleReading = function (e) {
+    var togglefollowing = function (e) {
         var link = $(this);
-        var id = link.attr("data-manga-id");
+        var id = link.attr("data-artist-id");
         var title = link.prop('title');
         var done = function () {
             link.toggleClass('btn-info')
@@ -14,17 +14,18 @@
                 .prop('title', title);
 
             link.children('i')
-                .toggleClass('fa-book-reader')
-                .toggleClass('fa-book');
+                .toggleClass('fa-plus')
+                .toggleClass('fa-minus');
         };
 
         if (link.hasClass('btn-default')) {
-            title = 'Reading';
-            readingService.add(id, done, fail);
+            title = 'Following';
+            followingService.add(id, done, fail);
+            
         }
         else {
-            title = 'Read';
-            readingService.remove(id, done, fail);
+            title = 'Follow';
+            followingService.remove(id, done, fail);
         }
     };
 
@@ -37,4 +38,4 @@
         init: init
     };
 
-}(ReadingService);
+}(FollowingService);
