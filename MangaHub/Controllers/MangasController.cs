@@ -86,23 +86,6 @@ namespace MangaHub.Controllers
             return View(mangas);
         }
 
-        //public ViewResult Index(string id)
-        //{
-        //    var viewModel = new MangasViewModel
-        //    {
-        //        Mangas = _unitOfWork.MangaRepo.GetMangasWithChapters(id)
-        //    };
-
-        //    if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
-        //    {
-        //        viewModel.ShowInfo = true;
-        //        viewModel.UserReadings = _unitOfWork.ReadingRepo
-        //                        .GetReadingsForUser(User.Identity.GetUserId())
-        //                            .ToLookup(r => r.MangaId);
-        //    }
-        //    return View(viewModel);
-        //}
-
         [Authorize]
         public ActionResult Edit(int id)
         {
