@@ -1,132 +1,130 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-    background-color: #eee;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #eee;
 }
-
-table th, table td {
-    text-align: center;
+table th {
+  text-align: center;
 }
-
+table td {
+  text-align: center;
+}
 table tr:nth-child(even) {
-    background-color: #e4e3e3;
+  background-color: #e4e3e3;
 }
-
 th {
-    background: #333;
-    color: #fff;
+  background: #333;
+  color: #fff;
 }
-
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
 /* Bootstrap Overrides*/
 .dl-horizontal dt {
-    white-space: normal;
+  white-space: normal;
 }
-
 .field-validation-error {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
-
 hr {
-    border-top: 1px solid #a66b6b;
+  border-top: 1px solid #a66b6b;
 }
-
-
-
-
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
+input {
+  max-width: 280px;
+}
+select {
+  max-width: 280px;
+}
 textarea {
-    max-width: 280px;
+  max-width: 280px;
 }
-
-
 /* Page-level styles*/
-
 .manga-list .pagination-container {
-    width: 70%;
-    float: left;
+  width: 70%;
+  float: left;
 }
-
 .manga-list .row_count {
-    width: 20%;
-    float: right;
-    text-align: center;
-    color: #999;
+  width: 20%;
+  float: right;
+  text-align: center;
+  color: #999;
 }
-
-.manga-picture {
-    width: 250px;
-}
-
-.manga-picture > img {
-    width: 100%;
-}
-
 .manga-list .actions {
-    display: none;
+  display: none;
 }
-
 .manga-list .manga-pane > div:hover .actions {
-    display: block;
+  display: block;
 }
-
+.manga-picture {
+  width: 250px;
+}
+.manga-picture > img {
+  width: 100%;
+}
 .actions {
-    margin: 2px 0;
+  margin: 2px 0;
 }
-
-
 .add-manga-btn {
-    position: fixed;
-    top: 10%;
-    right: 20%;
-    z-index: 1;
+  position: fixed;
+  top: 10%;
+  right: 20%;
+  z-index: 1;
 }
-
-.manga-title > a:hover,
+.manga-title > a:hover {
+  text-decoration: none;
+}
 .manga-title > a:focus {
-    text-decoration: none;
+  text-decoration: none;
 }
-
-.manga-title > h2, .manga-title > a > h2 {
-    display: inline-block;
+.manga-title > a > h2 {
+  display: inline-block;
 }
-
-.manga-title .manga-title-divider, .manga-title .book {
-    font-size: 2em;
-    color: #a66b6b;
+.manga-title > h2 {
+  display: inline-block;
 }
-
-
-.float-right{
-    float: right;
+.manga-title .manga-title-divider {
+  font-size: 2em;
+  color: #a66b6b;
 }
-
-.inline-block{
-    display: inline-block;
+.manga-title .book {
+  font-size: 2em;
+  color: #a66b6b;
 }
-
+.float-right {
+  float: right;
+}
+.inline-block {
+  display: inline-block;
+}
 .theme-font-color {
-    color: #a66b6b;
-    background-color: #fff;
+  color: #a66b6b;
+  background-color: #fff;
 }
-
-.theme-font-color:hover, .theme-font-color:focus, 
-.theme-font-color:active, 
+.theme-font-color:hover {
+  color: #fff;
+  background-color: #a66b6b;
+  border-color: #a66b6b;
+}
+.theme-font-color:focus {
+  color: #fff;
+  background-color: #a66b6b;
+  border-color: #a66b6b;
+}
+.theme-font-color:active {
+  color: #fff;
+  background-color: #a66b6b;
+  border-color: #a66b6b;
+}
 .theme-font-color:active:hover {
-    color: #fff;
-    background-color: #a66b6b;
-    border-color: #a66b6b;
+  color: #fff;
+  background-color: #a66b6b;
+  border-color: #a66b6b;
 }
-
 .following-list-pane {
-    font-size: 1.5em;
-    list-style: square;
+  font-size: 1.5em;
+  list-style: square;
 }

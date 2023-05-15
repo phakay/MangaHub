@@ -1,0 +1,185 @@
+﻿
+
+
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #eee;
+}
+
+table {
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    tr {
+        &:nth-child(even) {
+            background-color: #e4e3e3;
+        }
+    }
+}
+
+th {
+    background: #333;
+    color: #fff;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Bootstrap Overrides*/
+.dl-horizontal {
+    dt {
+        white-space: normal;
+    }
+}
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+
+hr {
+    border-top: 1px solid #a66b6b;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input {
+    max-width: 280px;
+}
+
+select {
+    max-width: 280px;
+}
+
+textarea {
+    max-width: 280px;
+}
+
+/* Page-level styles*/
+.manga-list {
+    .pagination-container {
+        width: 70%;
+        float: left;
+    }
+
+    .row_count {
+        width: 20%;
+        float: right;
+        text-align: center;
+        color: #999;
+    }
+
+    .actions {
+        display: none;
+    }
+
+    .manga-pane {
+        > div {
+            &:hover {
+                .actions {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.manga-picture {
+    width: 250px;
+
+    > img {
+        width: 100%;
+    }
+}
+
+.actions {
+    margin: 2px 0;
+}
+
+.add-manga-btn {
+    position: fixed;
+    top: 10%;
+    right: 20%;
+    z-index: 1;
+}
+
+.manga-title {
+    > a {
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:focus {
+            text-decoration: none;
+        }
+
+        > h2 {
+            display: inline-block;
+        }
+    }
+
+    > h2 {
+        display: inline-block;
+    }
+
+    .manga-title-divider {
+        font-size: 2em;
+        color: #a66b6b;
+    }
+
+    .book {
+        font-size: 2em;
+        color: #a66b6b;
+    }
+}
+
+.float-right {
+    float: right;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.theme-font-color {
+    color: #a66b6b;
+    background-color: #fff;
+
+    &:hover {
+        color: #fff;
+        background-color: #a66b6b;
+        border-color: #a66b6b;
+    }
+
+    &:focus {
+        color: #fff;
+        background-color: #a66b6b;
+        border-color: #a66b6b;
+    }
+
+    &:active {
+        color: #fff;
+        background-color: #a66b6b;
+        border-color: #a66b6b;
+
+        &:hover {
+            color: #fff;
+            background-color: #a66b6b;
+            border-color: #a66b6b;
+        }
+    }
+}
+
+.following-list-pane {
+    font-size: 1.5em;
+    list-style: square;
+}

@@ -334,10 +334,20 @@
     <Content Include="Content\lib\bootstrap\bootstrap.min.css" />
     <Content Include="Content\lib\font-awesome\free-v4-shims.min.css" />
     <Content Include="Content\lib\font-awesome\free.min.css" />
+    <Content Include="Content\Site.css">
+      <DependentUpon>Site.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Content\Site.less" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controllers\followingsController.js" />
     <Content Include="Scripts\app\controllers\readingsController.js" />
