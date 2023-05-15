@@ -10,6 +10,8 @@ namespace MangaHub.Persistence
         DbSet<Manga> Mangas { get; set; }
         DbSet<Reading> Readings { get; set; }
         DbSet<Following> Followings { get; set; }
+        DbSet<Notification> Notifications { get; set; }
+        DbSet<UserNotification> UserNotifications { get; set; }
         IDbSet<ApplicationUser> Users { get; set; }
     }
 }

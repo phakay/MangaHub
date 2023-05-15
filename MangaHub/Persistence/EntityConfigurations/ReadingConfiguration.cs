@@ -7,7 +7,6 @@ namespace MangaHub.Persistence.EntityConfigurations
     {
         public ReadingConfiguration()
         {
-   
             HasKey(r => new { r.MangaId, r.UserId });
 
             HasRequired(r => r.Manga)
