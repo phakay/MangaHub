@@ -211,8 +211,9 @@
     <Compile Include="Controllers\Api\ReadingsController.cs" />
     <Compile Include="Controllers\Api\MangasController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
+    <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Core\Dtos\FollowingDto.cs" />
-    <Compile Include="Core\Repositories\IUserRepository.cs" />
+    <Compile Include="Core\Repositories\IApplicationUserRepository.cs" />
     <Compile Include="Core\Repositories\IFollowingRespository.cs" />
     <Compile Include="Core\Models\Following.cs" />
     <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
@@ -401,6 +402,7 @@
     <Content Include="Views\Mangas\Mine.cshtml" />
     <Content Include="Views\Chapters\ChapterForm.cshtml" />
     <Content Include="Views\Mangas\Details.cshtml" />
+    <Content Include="Views\Followees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

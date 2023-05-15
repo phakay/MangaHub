@@ -125,3 +125,8 @@ textarea {
     background-color: #a66b6b;
     border-color: #a66b6b;
 }
+
+.following-list-pane {
+    font-size: 1.5em;
+    list-style: square;
+}

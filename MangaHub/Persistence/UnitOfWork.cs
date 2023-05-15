@@ -12,7 +12,7 @@ namespace MangaHub.Persistence
         public IChapterRepository ChapterRepo { get; set; }
         public IGenreRepository GenreRepo { get; set; }
         public IReadingRepository ReadingRepo { get ; set ; }
-        public IUserRepository UserRepo { get; set; }
+        public IApplicationUserRepository UserRepo { get; set; }
         public IFollowingRespository FollowingRepo { get; set; }
 
         public UnitOfWork(ApplicationDbContext context)

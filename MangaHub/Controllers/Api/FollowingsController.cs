@@ -62,7 +62,6 @@ namespace MangaHub.Controllers.Api
             _unitOfWork.Complete();
 
             return Ok();
-
         }
     }
 }

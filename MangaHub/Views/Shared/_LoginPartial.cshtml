@@ -17,7 +17,7 @@
                     if (User.IsInRole("Reader"))
                     {
                         <li><a href="@Url.Action("Mine","Mangas")">Mangas I'm Reading</a></li>
-                        <li><a href="#">Artists I'm Following</a></li>
+                        <li><a href="@Url.Action("Index","Followees")">Artists I'm Following</a></li>
                     }
                 }
                 <li role="separator" class="divider"></li>

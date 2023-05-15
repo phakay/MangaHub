@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MangaHub.Core.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Artists I'm Following</h2>
+
+<ul class="following-list-pane">
+    @foreach(var artist in Model)
+    { 
+       <li><a href="@Url.Action("Index","Home", new { id = artist.Id })">@artist.Name</a></li>
+    }
+</ul>

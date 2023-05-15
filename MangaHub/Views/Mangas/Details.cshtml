@@ -19,8 +19,8 @@
         </div>
         @if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
         {
-            <a class="js-toggle-reading theme-font-color actions btn btn-lg @(Model.IsReading? "btn-info" : "btn-default")" title="@(Model.IsReading? "Reading":"Read")"
-               data-manga-id="@Model.Manga.Id">
+            <a class="js-toggle-reading theme-font-color actions btn btn-lg @(Model.IsReading? "btn-info" : "btn-default")"
+               title="@(Model.IsReading? "Reading":"Read")" data-manga-id="@Model.Manga.Id">
                 <i class="fa @(Model.IsReading? "fa-book-reader": "fa-book")"></i>
             </a>
         }
@@ -35,8 +35,8 @@
                 <h3 class="inline-block">| by: @Model.Manga.Artist.Name</h3>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
                 {
-                    <a class="js-toggle-following theme-font-color actions btn btn-lg @(Model.IsFollowing? "btn-info" : "btn-default")" title="@(Model.IsFollowing? "Following":"Follow")"
-                       data-artist-id="@Model.Manga.Artist.Id">
+                    <a class="js-toggle-following theme-font-color actions btn btn-lg @(Model.IsFollowing? "btn-info" : "btn-default")" 
+                       title="@(Model.IsFollowing? "Following":"Follow")" data-artist-id="@Model.Manga.Artist.Id">
                         <i class="fa @(Model.IsFollowing? "fa-minus" : "fa-plus")"></i>
                     </a>
                 }

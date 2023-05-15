@@ -14,11 +14,11 @@ namespace MangaHub.Controllers
             _unitOfWork = unitOfWork;
             
         }
-        public ViewResult Index()
+        public ViewResult Index(string id = null)
         {
             var viewModel = new MangasViewModel
             {
-                Mangas = _unitOfWork.MangaRepo.GetMangasWithChapters()
+                Mangas = _unitOfWork.MangaRepo.GetMangasWithChapters(id)
             };
 
             if (User.Identity.IsAuthenticated && User.IsInRole("Reader"))
@@ -28,7 +28,6 @@ namespace MangaHub.Controllers
                                 .GetReadingsForUser(User.Identity.GetUserId())
                                     .ToLookup(r => r.MangaId);
             }
-
             return View(viewModel);
         }
 
