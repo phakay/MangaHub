@@ -10,6 +10,7 @@ namespace MangaHub.Core
         IReadingRepository ReadingRepo { get; set; }
         IFollowingRespository FollowingRepo { get; set; }
         IApplicationUserRepository UserRepo { get; set; }
+        INotificationRepository NotificationRepo { get; set; }
 
         void Complete();
     }

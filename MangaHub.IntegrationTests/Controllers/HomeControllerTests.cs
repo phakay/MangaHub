@@ -5,7 +5,6 @@ using MangaHub.Core.ViewModels;
 using MangaHub.Extensions;
 using MangaHub.Persistence;
 using NUnit.Framework;
-using System;
 using System.Linq;
 
 namespace MangaHub.IntegrationTests.Controllers

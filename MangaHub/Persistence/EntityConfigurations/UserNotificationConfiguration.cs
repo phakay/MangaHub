@@ -7,9 +7,11 @@ namespace MangaHub.Persistence.EntityConfigurations
     {
         public UserNotificationConfiguration()
         {
-            Property(un => un.NotificationId).HasColumnOrder(0);
-            Property(un => un.UserId).HasColumnOrder(1);
             HasKey(un => new { un.NotificationId, un.UserId });
+
+            HasRequired(un => un.User)
+                .WithMany(u => u.UserNotifications)
+                .WillCascadeOnDelete(true);
         }
     }
 }

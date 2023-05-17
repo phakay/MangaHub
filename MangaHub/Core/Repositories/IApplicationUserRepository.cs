@@ -6,6 +6,7 @@ namespace MangaHub.Core.Repositories
     public interface IApplicationUserRepository : IRepository<ApplicationUser>
     {
         ApplicationUser GetUser(string Id);
+        ApplicationUser GetUserWithFollowers(string Id);
         IEnumerable<ApplicationUser> GetFollowees(string followerId);
     }
 }

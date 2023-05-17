@@ -41,7 +41,7 @@ namespace MangaHub.Controllers
                 return View("ChapterForm", viewModel);
             }
 
-            var manga = _unitOfWork.MangaRepo.GetManga(viewModel.MangaId);
+            var manga = _unitOfWork.MangaRepo.GetMangaWithReaders(viewModel.MangaId);
             if (manga == null)
                 return HttpNotFound();
 
@@ -58,6 +58,9 @@ namespace MangaHub.Controllers
             }
 
             var mangaChapter = Mapper.Map<ChapterFormViewModel, Chapter>(viewModel);
+            mangaChapter.Manga = manga;
+            mangaChapter.NotifyCreate();
+
             _unitOfWork.ChapterRepo.Add(mangaChapter);
 
             _unitOfWork.Complete();

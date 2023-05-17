@@ -39,7 +39,7 @@ namespace MangaHub.Controllers
             }
 
             var file = viewModel.PictureWrapper;
-            var imageData = new byte[0];
+            viewModel.Picture = new byte[0];
 
             if (file != null && ModelState.IsValid)
             {
@@ -56,18 +56,20 @@ namespace MangaHub.Controllers
                 using(var ms  = new MemoryStream())
                 {
                     file.InputStream.CopyTo(ms);
-                    imageData = ms.ToArray();
+                    viewModel.Picture = ms.ToArray();
                 }
             }
 
+            var artist = _unitOfWork.UserRepo.GetUserWithFollowers(User.Identity.GetUserId());
             var manga = new Manga
             {
                 Title = viewModel.Title,
                 Description = viewModel.Description,
-                ArtistId = User.Identity.GetUserId(),
+                Artist = artist,
                 GenreId = viewModel.Genre,
-                Picture = imageData
+                Picture = viewModel.Picture
             };
+            manga.NotifyCreate();
 
             _unitOfWork.MangaRepo.Add(manga);
             _unitOfWork.Complete();
@@ -144,17 +146,14 @@ namespace MangaHub.Controllers
                 }
             }
 
-
-            var manga = _unitOfWork.MangaRepo.GetManga(viewModel.Id);
-
+            var manga = _unitOfWork.MangaRepo.GetMangaWithReaders(viewModel.Id);
             if (manga == null)
                 return HttpNotFound();
 
-            manga.Update(new Manga
+            manga.UpdateAndNotify(new Manga
             {
                 Title = viewModel.Title,
                 Description = viewModel.Description,
-                ArtistId = User.Identity.GetUserId(),
                 GenreId = viewModel.Genre,
                 Picture = imageData
             });

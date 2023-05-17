@@ -16,6 +16,10 @@ namespace MangaHub.Persistence.EntityConfigurations
                 .WithMany()
                 .WillCascadeOnDelete(false);
 
+            HasRequired(c => c.Followee)
+                .WithMany(f => f.Followers)
+                .WillCascadeOnDelete(true);
+
             HasKey(c => new { c.FolloweeId, c.FollowerId });
         }
     }

@@ -208,6 +208,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\FollowingsController.cs" />
+    <Compile Include="Controllers\Api\NotificationsController.cs" />
+    <Compile Include="Core\Dtos\NotificationDto.cs" />
     <Compile Include="Controllers\Api\ReadingsController.cs" />
     <Compile Include="Controllers\Api\MangasController.cs" />
     <Compile Include="Controllers\ChaptersController.cs" />
@@ -219,6 +221,8 @@
     <Compile Include="Core\Repositories\IApplicationUserRepository.cs" />
     <Compile Include="Core\Repositories\IFollowingRespository.cs" />
     <Compile Include="Core\Models\Following.cs" />
+    <Compile Include="Core\Repositories\INotificationRepository.cs" />
+    <Compile Include="Core\Utitlity\INotify.cs" />
     <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
     <Compile Include="Core\ViewModels\MangasViewModel.cs" />
     <Compile Include="Core\Dtos\ReadingDto.cs" />
@@ -313,6 +317,10 @@
     <Compile Include="Persistence\Migrations\202305151432263_AddNotificationTables.Designer.cs">
       <DependentUpon>202305151432263_AddNotificationTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\Migrations\202305161312526_EditNotificationTable.cs" />
+    <Compile Include="Persistence\Migrations\202305161312526_EditNotificationTable.Designer.cs">
+      <DependentUpon>202305161312526_EditNotificationTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
     <Compile Include="Persistence\ApplicationDbContext.cs" />
@@ -324,6 +332,7 @@
     <Compile Include="Core\Repositories\IGenreRepository.cs" />
     <Compile Include="Core\Repositories\IMangaRepository.cs" />
     <Compile Include="Persistence\EntityConfigurations\NotificationConfiguration.cs" />
+    <Compile Include="Persistence\Repositories\NotificationRepository.cs" />
     <Compile Include="Persistence\Repositories\UserRepository.cs" />
     <Compile Include="Persistence\Repositories\FollowingRepository.cs" />
     <Compile Include="Persistence\Repositories\ReadingRepository.cs" />
@@ -490,6 +499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305151432263_AddNotificationTables.resx">
       <DependentUpon>202305151432263_AddNotificationTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305161312526_EditNotificationTable.resx">
+      <DependentUpon>202305161312526_EditNotificationTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

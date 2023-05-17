@@ -78,10 +78,12 @@ namespace MangaHub.Controllers.Api
             if (manga.ArtistId != userId)
                 return Unauthorized();
 
-            var chapter = _unitOfWork.ChapterRepo.GetChapterForManga(mangaId, chapterNo);
+            var chapter = _unitOfWork.ChapterRepo.GetChapterForMangaWithReaders(mangaId, chapterNo);
 
             if (chapter == null)
                 return NotFound();
+
+            chapter.NotifyDelete();
 
             _unitOfWork.ChapterRepo.Remove(chapter);
 

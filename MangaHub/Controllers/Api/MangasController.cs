@@ -18,13 +18,15 @@ namespace MangaHub.Controllers.Api
         {
             var userId = User.Identity.GetUserId();
 
-            var manga = _unitOfWork.MangaRepo.GetManga(id);
+            var manga = _unitOfWork.MangaRepo.GetMangaWithReaders(id);
 
             if (manga == null)
                 return NotFound();
 
             if (manga.ArtistId != userId)
                 return Unauthorized();
+
+            manga.NotifyDelete();
 
             _unitOfWork.MangaRepo.Remove(manga);
 

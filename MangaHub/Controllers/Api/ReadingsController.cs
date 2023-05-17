@@ -42,11 +42,8 @@ namespace MangaHub.Controllers.Api
                 != null)
                 return Ok();
 
-            var reading = new Reading
-            {
-                MangaId = dto.MangaId,
-                UserId = userId
-            };
+            var reading = new Reading(userId, manga.Id);
+
             _unitOfWork.ReadingRepo.Add(reading);
 
             _unitOfWork.Complete();
