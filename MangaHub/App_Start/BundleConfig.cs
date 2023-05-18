@@ -14,7 +14,9 @@ namespace MangaHub
 
             bundles.Add(new ScriptBundle("~/bundles/lib").Include(
                         "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/bootstrap.js"));
+                        "~/Scripts/bootstrap.js",
+                        "~/Scripts/moment.min.js",
+                        "~/Scripts/underscore-umd-min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -28,6 +30,7 @@ namespace MangaHub
                       "~/Content/lib/bootstrap/bootstrap.css",
                       "~/Content/lib/font-awesome/free-v4-shims.min.css",
                       "~/Content/lib/font-awesome/free.min.css",
+                      "~/Content/lib/animate.min.css",
                       "~/Content/site.css"));
         }
     }

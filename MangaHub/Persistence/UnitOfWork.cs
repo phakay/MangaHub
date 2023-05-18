@@ -15,6 +15,7 @@ namespace MangaHub.Persistence
         public IApplicationUserRepository UserRepo { get; set; }
         public IFollowingRespository FollowingRepo { get; set; }
         public INotificationRepository NotificationRepo { get; set; }
+        public IUserNotificationRepository UserNotificationRepo { get; set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -26,6 +27,7 @@ namespace MangaHub.Persistence
             UserRepo = new UserRepository(_context);
             FollowingRepo = new FollowingRepository(_context);
             NotificationRepo = new NotificationRepository(_context);
+            UserNotificationRepo = new UserNotificationRepo(_context);
         }
 
         public void Complete()

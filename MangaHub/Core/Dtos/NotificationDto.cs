@@ -2,7 +2,7 @@
 
 namespace MangaHub.Core.Dtos
 {
-    public class NotificationMessageDto
+    public class NotificationDto
     {
         public string Message { get; set; }
         public DateTime? DateCreated { get; set; }

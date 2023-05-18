@@ -1,4 +1,7 @@
 ﻿
+:root {
+    --theme-color: #a66b6b;
+}
 
 
 
@@ -48,7 +51,7 @@ th {
 }
 
 hr {
-    border-top: 1px solid #a66b6b;
+    border-top: 1px solid var(--theme-color);
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -133,12 +136,12 @@ textarea {
 
     .manga-title-divider {
         font-size: 2em;
-        color: #a66b6b;
+        color: var(--theme-color);
     }
 
     .book {
         font-size: 2em;
-        color: #a66b6b;
+        color: var(--theme-color);
     }
 }
 
@@ -151,30 +154,30 @@ textarea {
 }
 
 .theme-font-color {
-    color: #a66b6b;
+    color: var(--theme-color);
     background-color: #fff;
 
     &:hover {
         color: #fff;
-        background-color: #a66b6b;
-        border-color: #a66b6b;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
     }
 
     &:focus {
         color: #fff;
-        background-color: #a66b6b;
-        border-color: #a66b6b;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
     }
 
     &:active {
         color: #fff;
-        background-color: #a66b6b;
-        border-color: #a66b6b;
+        background-color: var(--theme-color);
+        border-color: var(--theme-color);
 
         &:hover {
             color: #fff;
-            background-color: #a66b6b;
-            border-color: #a66b6b;
+            background-color: var(--theme-color);
+            border-color: var(--theme-color);
         }
     }
 }
@@ -183,3 +186,41 @@ textarea {
     font-size: 1.5em;
     list-style: square;
 }
+
+.navbar-right {
+    .notifications {
+        position: relative;
+
+        .badge {
+            position: absolute;
+            top: 6px;
+            right: -0.5px;
+            background: var(--theme-color);
+        }
+    }
+}
+
+/*overrides*/
+.popover-notifications {
+    .popover-content {
+        padding: 0;
+        overflow-y: auto;
+        height: 500px;
+    }
+
+    ul.notifications{
+        list-style: none;
+        padding-left: 0;
+
+        >li{
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+
+            &:last-child{
+                border-bottom: none;
+            }
+        }
+
+    }
+}
+

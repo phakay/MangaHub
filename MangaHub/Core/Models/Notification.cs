@@ -36,7 +36,7 @@ namespace MangaHub.Core.Models
             return new Notification(type, dataBeforeInBytes, dataAfterInBytes);
         }
 
-        public NotificationMessageDto GetNotificationMessage()
+        public NotificationDto GetNotificationMessage()
         {
             var message = string.Empty;
             if(Type == NotificationType.MangaCreated)
@@ -49,7 +49,7 @@ namespace MangaHub.Core.Models
                 var mangaBefore = JsonConvert.DeserializeObject<Manga>(Encoding.ASCII.GetString(DataBefore));
                 var mangaAfter = JsonConvert.DeserializeObject<Manga>(Encoding.ASCII.GetString(DataAfter));
                 if (mangaBefore == null || mangaAfter == null)
-                    return new NotificationMessageDto() 
+                    return new NotificationDto() 
                     {Message = string.Empty, DateCreated = DateCreated };
 
                 var propertyNamestToCheck = new[] { nameof(Manga.Title), nameof(Manga.Description), nameof(Manga.GenreId), nameof(Manga.Picture) };
@@ -85,7 +85,7 @@ namespace MangaHub.Core.Models
                     $"has been added for Manga: {chapterAfter.Manga.Title}." : string.Empty;
             }
 
-            return new NotificationMessageDto { Message = message, DateCreated = DateCreated };
+            return new NotificationDto { Message = message, DateCreated = DateCreated };
         }
         private bool IsEqual(Type type, object obj1, object obj2)
         {

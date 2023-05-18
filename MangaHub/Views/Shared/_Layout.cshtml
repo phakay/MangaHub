@@ -21,7 +21,6 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -38,5 +37,23 @@
     @Scripts.Render("~/bundles/lib")
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
+
+    <script type="text/x-template" id="notifications-template">
+        <ul class="notifications">
+            <%
+                _.each(notifications, function(notification){ 
+            %>
+                    <li><%= notification.Message %> - <%= moment(notification.DateCreated).format("D MMM HH:mm") %>.</li>
+                <% 
+                    });
+                %>
+        </ul>
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            NotificationsController.init('#logoutForm');
+        });
+    </script>
 </body>
 </html>
