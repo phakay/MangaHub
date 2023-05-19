@@ -1,6 +1,7 @@
 ﻿using MangaHub.Core.Models;
 using MangaHub.Core.Repositories;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace MangaHub.Persistence.Repositories
@@ -17,7 +18,14 @@ namespace MangaHub.Persistence.Repositories
 
         public Reading GetReadingForManga(int mangaId, string userId)
         {
-            return _context.Readings
+            return _context.Readings.Find(mangaId, userId);          
+        }
+
+        public Reading GetReadingForMangaWithUserAndManga(int mangaId, string userId)
+        {
+               return _context.Readings
+                            .Include(r => r.User)
+                            .Include(r => r.Manga.Artist)
                             .SingleOrDefault(r => r.MangaId == mangaId &&
                             r.UserId == userId);
         }

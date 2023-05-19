@@ -1,5 +1,7 @@
 ﻿using MangaHub.Core;
 using MangaHub.Core.Models;
+using System.Data.Entity;
+using System.Linq;
 
 namespace MangaHub.Persistence.Repositories
 {
@@ -19,6 +21,15 @@ namespace MangaHub.Persistence.Repositories
             // when using a composite primary key.
             // according to ordering, composit key is :(followeeId, followerId)
             return _context.Followings.Find(followeeId, followerId);
+        }
+
+        public Following GetFollowingWithUsers(string followerId, string followeeId)
+        {
+            return _context.Followings
+                .Include(f => f.Followee)
+                .Include(f => f.Follower)
+                .SingleOrDefault(f => f.FollowerId == followerId 
+                && f.FolloweeId == followeeId);
         }
     }
 }

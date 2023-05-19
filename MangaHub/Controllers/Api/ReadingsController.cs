@@ -30,22 +30,21 @@ namespace MangaHub.Controllers.Api
             if (dto is null)
                 return BadRequest();
 
-            var userId = User.Identity.GetUserId();
+            var userId = User.Identity.GetUserId();         
 
             var manga = _unitOfWork.MangaRepo.GetManga(dto.MangaId);
-
             if (manga == null)
                 return NotFound();
 
             if (_unitOfWork.ReadingRepo
-                .GetReadingForManga(dto.MangaId, userId)
-                != null)
+                .GetReadingForManga(dto.MangaId, userId) != null)
                 return Ok();
 
-            var reading = new Reading(userId, manga.Id);
+            var user = _unitOfWork.UserRepo.GetUser(userId);
+            var reading = new Reading(user, manga);
 
+            reading.NotifyCreate();
             _unitOfWork.ReadingRepo.Add(reading);
-
             _unitOfWork.Complete();
 
             return Ok();
@@ -54,15 +53,14 @@ namespace MangaHub.Controllers.Api
         [HttpDelete, Authorize(Roles = "Reader")]
         public IHttpActionResult RemoveReadingForManga(int id)
         {
-            var userId = User.Identity.GetUserId();
-
-            var reading = _unitOfWork.ReadingRepo.GetReadingForManga(id, userId);
+            var reading = _unitOfWork.ReadingRepo
+                .GetReadingForMangaWithUserAndManga(id, User.Identity.GetUserId());
 
             if (reading == null)
                 return NotFound();
 
+            reading.NotifyDelete();
             _unitOfWork.ReadingRepo.Remove(reading);
-
             _unitOfWork.Complete();
 
             return Ok();

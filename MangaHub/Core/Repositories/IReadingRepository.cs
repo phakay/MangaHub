@@ -6,6 +6,7 @@ namespace MangaHub.Core.Repositories
     public interface IReadingRepository : IRepository<Reading>
     {
         Reading GetReadingForManga(int mangaId, string userId);
+        Reading GetReadingForMangaWithUserAndManga(int mangaId, string userId);
         IEnumerable<Reading> GetReadingsForUser(string userId);
         
     }

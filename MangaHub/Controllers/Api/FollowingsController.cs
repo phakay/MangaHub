@@ -38,11 +38,12 @@ namespace MangaHub.Controllers.Api
             if (_unitOfWork.FollowingRepo.GetFollowing(userId, dto.FolloweeId) != null)
                 return BadRequest("Following already exists");
 
-            var following = new Following
-            {
-                FolloweeId = dto.FolloweeId,
-                FollowerId = userId
-            };
+            var follower = _unitOfWork.UserRepo.GetUser(userId);
+            var followee = _unitOfWork.UserRepo.GetUser(dto.FolloweeId);
+
+            var following = new Following(follower, followee);
+
+            following.NotifyCreate();
 
             _unitOfWork.FollowingRepo.Add(following);
             _unitOfWork.Complete();
@@ -53,10 +54,12 @@ namespace MangaHub.Controllers.Api
         [HttpDelete, Authorize(Roles = "Reader")]
         public IHttpActionResult Unfollow(string id)
         {
-            var following = _unitOfWork.FollowingRepo.GetFollowing(User.Identity.GetUserId(), id);
+            var following = _unitOfWork.FollowingRepo.GetFollowingWithUsers(User.Identity.GetUserId(), id);
 
             if (following == null)
                 return NotFound();
+
+            following.NotifyDelete();
 
             _unitOfWork.FollowingRepo.Remove(following);
             _unitOfWork.Complete();
