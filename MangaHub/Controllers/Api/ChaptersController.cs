@@ -15,7 +15,7 @@ namespace MangaHub.Controllers.Api
         public ChaptersController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-         }
+        }
 
         [HttpPost, Authorize]
         public IHttpActionResult Add(ChapterDto dto)

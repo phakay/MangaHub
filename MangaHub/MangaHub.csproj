@@ -224,6 +224,7 @@
     <Compile Include="Core\Models\Following.cs" />
     <Compile Include="Core\Repositories\INotificationRepository.cs" />
     <Compile Include="Core\Utitlity\INotify.cs" />
+    <Compile Include="Core\Utitlity\IUpdateableAndNotifiable.cs" />
     <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
     <Compile Include="Core\ViewModels\MangasViewModel.cs" />
     <Compile Include="Core\Dtos\ReadingDto.cs" />
@@ -321,6 +322,10 @@
     <Compile Include="Persistence\Migrations\202305161312526_EditNotificationTable.cs" />
     <Compile Include="Persistence\Migrations\202305161312526_EditNotificationTable.Designer.cs">
       <DependentUpon>202305161312526_EditNotificationTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\202305190544100_EditNotificationTable1.cs" />
+    <Compile Include="Persistence\Migrations\202305190544100_EditNotificationTable1.Designer.cs">
+      <DependentUpon>202305190544100_EditNotificationTable1.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\ViewModels\AccountViewModels.cs" />
@@ -509,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\202305161312526_EditNotificationTable.resx">
       <DependentUpon>202305161312526_EditNotificationTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\202305190544100_EditNotificationTable1.resx">
+      <DependentUpon>202305190544100_EditNotificationTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

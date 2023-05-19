@@ -8,6 +8,6 @@ namespace MangaHub.Core.Utitlity
     {
         void NotifyCreate();
         void NotifyDelete();
-        void AddNotification(NotificationType notificationType, string dataBefore, string dataAfter, IEnumerable<ApplicationUser> usersToNotify);
+        void AddNotification(NotificationType notificationType, string message, IEnumerable<ApplicationUser> usersToNotify);
     }
 }

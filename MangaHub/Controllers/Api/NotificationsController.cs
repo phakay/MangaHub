@@ -1,5 +1,7 @@
-﻿using MangaHub.Core;
+﻿using AutoMapper;
+using MangaHub.Core;
 using MangaHub.Core.Dtos;
+using MangaHub.Core.Models;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +22,10 @@ namespace MangaHub.Controllers.Api
 
         public IEnumerable<NotificationDto> GetNewNotifications()
         {
-            var userId = User.Identity.GetUserId();
-            var notifications = _uniOfWork.NotificationRepo.GetNotificationsForUser(userId);
-            var result = from notification in notifications
-                         select notification.GetNotificationMessage();
-            return result;
+            var notifications = _uniOfWork.NotificationRepo
+                .GetNotificationsForUser(User.Identity.GetUserId());
+
+            return notifications.Select(Mapper.Map<Notification, NotificationDto>);
         }
 
         [HttpPost]

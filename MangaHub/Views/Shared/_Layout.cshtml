@@ -43,7 +43,7 @@
             <%
                 _.each(notifications, function(notification){ 
             %>
-                    <li><%= notification.Message %> - <%= moment(notification.DateCreated).format("D MMM HH:mm") %>.</li>
+                    <li><%= notification.Message %> <span class="highlight"><%= moment(notification.DateCreated).format("D MMM HH:mm") %>.</span></li>
                 <% 
                     });
                 %>

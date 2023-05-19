@@ -14,6 +14,11 @@ namespace MangaHub.Persistence.Repositories
             _context = context;
         }
 
+        public Genre Get(int id)
+        {
+            return _context.Genres.Find(id);
+        }
+
         public List<Genre> GetGenres()
         {
             return _context.Genres.ToList();

@@ -1,6 +1,5 @@
 ﻿using MangaHub.Core.Enums;
 using MangaHub.Core.Utitlity;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +7,7 @@ using System.Linq;
 
 namespace MangaHub.Core.Models
 {
-    public class Manga : INotify
+    public class Manga : IUpdateableAndNotifiable<Manga>
     {
 
         public int Id { get; set; }
@@ -20,9 +19,7 @@ namespace MangaHub.Core.Models
         public byte GenreId { get; set; }
         public DateTime DateCreated { get; private set; }
         public byte[] Picture { get; set; }
-        [JsonIgnore]
         public ICollection<Chapter> Chapters { get; private set; }
-        [JsonIgnore]
         public ICollection<Reading> Readings { get; private set; }
         public Manga()
         {
@@ -41,30 +38,59 @@ namespace MangaHub.Core.Models
 
         public void UpdateAndNotify(Manga objToUpdate)
         {
-            var dataBefore = JsonConvert.SerializeObject(this);
+            var changes = new Collection<string>();
+            var originalValues = new Collection<string>();
+            var newValues = new Collection<string>();
+            var message = string.Empty;
+
+            if(Title != objToUpdate.Title)
+            {
+                changes.Add("Title");
+                originalValues.Add(Title);
+                newValues.Add(objToUpdate.Title);
+            }
+            if(Description != objToUpdate.Description)
+            {
+                changes.Add("Description");
+            }
+            if (GenreId != objToUpdate.GenreId)
+            {
+                changes.Add("Genre");
+                originalValues.Add(Genre.Name);
+                newValues.Add(objToUpdate.Genre.Name);
+            }
+            if(objToUpdate.Picture != null && !Enumerable.SequenceEqual(Picture, objToUpdate.Picture))
+            {
+                changes.Add("Picture");
+            }
+
+            if(changes.Count > 0)
+            {
+                var changesString = changes.Count > 1 ? string.Join(" and ", changes) : changes[0];
+                message = $"{Artist.Name} has updated {changesString} of {Title}" +
+                $" from {string.Join(" / ", originalValues)} to {string.Join(" / ", newValues)}";
+            }
+            
             Update(objToUpdate);
-            var dataAfter = JsonConvert.SerializeObject(this);
-            AddNotification(NotificationType.MangaUpdated, dataBefore, dataAfter, Readings.Select(r => r.User));
+
+            if(!string.IsNullOrEmpty(message))
+                AddNotification(NotificationType.Created, message, Readings.Select(r => r.User));
         }
 
         public void NotifyCreate()
         {
-            var dataBefore = string.Empty;
-            var dataAfter = JsonConvert.SerializeObject(this);
-            var followers = Artist != null ? Artist.Followers.Select(f => f.Follower) : Enumerable.Empty<ApplicationUser>();
-            AddNotification(NotificationType.MangaCreated, dataBefore, dataAfter, followers);
+            var followers = Artist.Followers.Select(f => f.Follower);
+            AddNotification(NotificationType.Created, $"{Artist.Name} uploaded Manga: {Title}", followers);
         }
 
         public void NotifyDelete()
         {
-            var dataBefore = JsonConvert.SerializeObject(this);
-            var dataAfter = String.Empty;
-            AddNotification(NotificationType.MangaDeleted, dataBefore, dataAfter, Readings.Select(r => r.User));
+            AddNotification(NotificationType.Deleted, $"{Artist.Name} removed Manga: {Title}", Readings.Select(r => r.User));
         }
 
-        public void AddNotification(NotificationType notificationType, string dataBefore, string dataAfter, IEnumerable<ApplicationUser> users)
+        public void AddNotification(NotificationType notificationType, string message, IEnumerable<ApplicationUser> users)
         {
-            var notification = Notification.Add(notificationType, dataBefore, dataAfter);
+            var notification = Notification.Add(notificationType, message);
             foreach (var user in users)
             {
                 user.Notify(notification);

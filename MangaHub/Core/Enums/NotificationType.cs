@@ -2,10 +2,8 @@
 {
     public enum NotificationType
     {
-        MangaCreated ,
-        MangaUpdated ,
-        MangaDeleted ,
-        ChapterCreated ,
-        ChapterDeleted 
+        Created ,
+        Updated ,
+        Deleted 
     }
 }

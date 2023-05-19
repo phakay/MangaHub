@@ -7,8 +7,7 @@ namespace MangaHub.Persistence.EntityConfigurations
     {
         public NotificationConfiguration()
         {
-            Property(n => n.DataBefore).IsRequired();
-            Property(n => n.DataAfter).IsRequired();
+            Property(n => n.Message).IsRequired();
         }
     }
 }

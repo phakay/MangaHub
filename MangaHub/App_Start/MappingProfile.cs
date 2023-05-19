@@ -12,6 +12,7 @@ namespace MangaHub.App_Start
             Mapper.CreateMap<Chapter, ChapterDto>().ReverseMap();
             Mapper.CreateMap<Reading, ReadingDto>().ReverseMap();
             Mapper.CreateMap<Chapter, ChapterFormViewModel>().ReverseMap();
+            Mapper.CreateMap<Notification, NotificationDto>().ReverseMap();
         }
     }
 }

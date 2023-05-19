@@ -150,6 +150,9 @@ textarea {
   list-style: none;
   padding-left: 0;
 }
+.popover-notifications ul.notifications .highlight {
+  font-weight: bold;
+}
 .popover-notifications ul.notifications > li {
   border-bottom: 1px solid #ddd;
   padding: 10px;

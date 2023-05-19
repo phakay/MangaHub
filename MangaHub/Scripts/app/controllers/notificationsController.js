@@ -23,7 +23,8 @@
                 return compiled({notifications: notifications});
             },
             placement: "bottom",
-            template: '<div class="popover popover-notifications" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+            template: '<div class="popover popover-notifications" role="tooltip"><div class="arrow">' +
+                '</div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
 
         }).on('shown.bs.popover', function () {
             var done_ = function () {

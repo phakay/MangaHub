@@ -147,14 +147,19 @@ namespace MangaHub.Controllers
             }
 
             var manga = _unitOfWork.MangaRepo.GetMangaWithReaders(viewModel.Id);
-            if (manga == null)
-                return HttpNotFound();
+            var genre = _unitOfWork.GenreRepo.Get(viewModel.Genre);
 
+            if(genre == null)
+                return HttpNotFound("Manga was not found");
+            if (genre == null)
+                return HttpNotFound("Genre was not found");
+            
             manga.UpdateAndNotify(new Manga
             {
                 Title = viewModel.Title,
                 Description = viewModel.Description,
                 GenreId = viewModel.Genre,
+                Genre = genre,
                 Picture = imageData
             });
 

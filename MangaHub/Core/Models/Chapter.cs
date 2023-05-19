@@ -1,6 +1,5 @@
 ﻿using MangaHub.Core.Enums;
 using MangaHub.Core.Utitlity;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,23 +29,19 @@ namespace MangaHub.Core.Models
         }
         public void NotifyCreate()
         {
-            var dataBefore = string.Empty;
-            var dataAfter = JsonConvert.SerializeObject(this);
             var readers = Manga != null ? Manga.Readings.Select(r => r.User) : Enumerable.Empty<ApplicationUser>();
-            AddNotification(NotificationType.ChapterCreated, dataBefore, dataAfter, readers);
+            AddNotification(NotificationType.Created, $"{Manga.Artist.Name} added Chapter {ChapterNo} for {Manga.Title}", readers);
         }
 
         public void NotifyDelete()
         {
-            var dataBefore = JsonConvert.SerializeObject(this);
-            var dataAfter = String.Empty;
             var readers = Manga != null ? Manga.Readings.Select(r => r.User) : Enumerable.Empty<ApplicationUser>();
-            AddNotification(NotificationType.ChapterDeleted, dataBefore, dataAfter, readers);
+            AddNotification(NotificationType.Deleted, $"{Manga.Artist.Name} removed Chapter {ChapterNo} for {Manga.Title}", readers);
         }
 
-        public void AddNotification(NotificationType notificationType, string dataBefore, string dataAfter, IEnumerable<ApplicationUser> users)
+        public void AddNotification(NotificationType notificationType, string message, IEnumerable<ApplicationUser> users)
         {
-            var notification = Notification.Add(notificationType, dataBefore, dataAfter);
+            var notification = Notification.Add(notificationType, message);
             foreach (var user in users)
             {
                 user.Notify(notification);
