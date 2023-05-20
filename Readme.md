@@ -17,8 +17,8 @@ This project implements some of the cool features I learnt in dotnet Framework
 
 ### Final Look:
 here's a look
-![](images/projectSnapshot1.png)
-![](images/projectSnapshot2.png)
+![](images/projectSnapshot1.PNG)
+![](images/projectSnapshot2.PNG)
 
 ## Contribution
 Feel free to send in a pull request. I'd be happy to review and merge.
