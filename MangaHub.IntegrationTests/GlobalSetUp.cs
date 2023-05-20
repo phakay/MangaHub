@@ -2,7 +2,9 @@
 using MangaHub.Migrations;
 using MangaHub.Persistence;
 using NUnit.Framework;
+using System;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 
 namespace MangaHub.IntegrationTests
@@ -13,6 +15,13 @@ namespace MangaHub.IntegrationTests
         [SetUp]
         public void SetUp()
         {
+            var projectPath = Directory
+                .GetParent(AppDomain.CurrentDomain.BaseDirectory)
+                .Parent
+                .Parent
+                .FullName;
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(projectPath,"App_Data"));
+
             MigrateDbToLatestVersion();
             Seed();
         }

@@ -443,6 +443,7 @@
     <Content Include="Views\Chapters\ChapterForm.cshtml" />
     <Content Include="Views\Mangas\Details.cshtml" />
     <Content Include="Views\Followees\Index.cshtml" />
+    <Content Include="Views\Shared\_NotificationTemplatePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

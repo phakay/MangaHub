@@ -38,17 +38,8 @@
     @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
 
-    <script type="text/x-template" id="notifications-template">
-        <ul class="notifications">
-            <%
-                _.each(notifications, function(notification){ 
-            %>
-                    <li><%= notification.Message %> <span class="highlight"><%= moment(notification.DateCreated).format("D MMM HH:mm") %>.</span></li>
-                <% 
-                    });
-                %>
-        </ul>
-    </script>
+    @Html.Partial("_NotificationTemplatePartial")
+
 
     <script type="text/javascript">
         $(document).ready(function () {

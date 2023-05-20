@@ -1,0 +1,11 @@
+﻿<script type="text/x-template" id="notifications-template">
+    <ul class="notifications">
+        <%
+        _.each(notifications, function(notification){
+        %>
+        <li><%= notification.message %> <span class="highlight"><%= moment(notification.dateCreated).format("D MMM HH:mm") %>.</span></li>
+        <%
+        });
+        %>
+    </ul>
+</script>
