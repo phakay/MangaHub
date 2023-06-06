@@ -84,6 +84,7 @@
     <Compile Include="Controllers\Api\FollowingsControllerTests.cs" />
     <Compile Include="Controllers\Api\ChaptersControllerTests.cs" />
     <Compile Include="Controllers\HomeControllerTests.cs" />
+    <Compile Include="Controllers\MangaControllerTests.cs" />
     <Compile Include="Isolated.cs" />
     <Compile Include="Repositories\MangaRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
