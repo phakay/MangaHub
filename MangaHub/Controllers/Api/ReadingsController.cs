@@ -1,6 +1,7 @@
 ﻿using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
@@ -41,9 +42,13 @@ namespace MangaHub.Controllers.Api
                 return Ok();
 
             var user = _unitOfWork.UserRepo.GetUser(userId);
+            
             var reading = new Reading(user, manga);
 
-            reading.NotifyCreate();
+            var notifier = new Notifier();
+            var notificationMessage = $"{user.Name} is reading Manga: {manga.Title}";
+            notifier.NotifyDelete(new[] {user}, notificationMessage);
+
             _unitOfWork.ReadingRepo.Add(reading);
             _unitOfWork.Complete();
 
@@ -59,7 +64,10 @@ namespace MangaHub.Controllers.Api
             if (reading == null)
                 return NotFound();
 
-            reading.NotifyDelete();
+            var notifier = new Notifier();
+            var notificationMessage = $"{reading.User.Name} has unread Manga: {reading.Manga.Title}";
+            notifier.NotifyDelete(new[] { reading.User }, notificationMessage);
+
             _unitOfWork.ReadingRepo.Remove(reading);
             _unitOfWork.Complete();
 

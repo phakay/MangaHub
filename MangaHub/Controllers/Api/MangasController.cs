@@ -1,5 +1,7 @@
 ﻿using MangaHub.Core;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Web.Http;
 
 namespace MangaHub.Controllers.Api
@@ -26,7 +28,9 @@ namespace MangaHub.Controllers.Api
             if (manga.ArtistId != userId)
                 return Unauthorized();
 
-            manga.NotifyDelete();
+            var notifier = new Notifier();
+            var notificationMessage = $"{manga.Artist.Name} removed Manga: {manga.Title}";
+            notifier.NotifyDelete(manga.Readings.Select(r => r.User), notificationMessage);
 
             _unitOfWork.MangaRepo.Remove(manga);
 

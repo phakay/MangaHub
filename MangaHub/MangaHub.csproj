@@ -223,8 +223,6 @@
     <Compile Include="Core\Repositories\IFollowingRespository.cs" />
     <Compile Include="Core\Models\Following.cs" />
     <Compile Include="Core\Repositories\INotificationRepository.cs" />
-    <Compile Include="Core\Utitlity\INotify.cs" />
-    <Compile Include="Core\Utitlity\IUpdateableAndNotifiable.cs" />
     <Compile Include="Core\ViewModels\MangaDetailsViewModel.cs" />
     <Compile Include="Core\ViewModels\MangasViewModel.cs" />
     <Compile Include="Core\Dtos\ReadingDto.cs" />
@@ -351,6 +349,8 @@
     <Compile Include="Persistence\Repositories\UserNotificationRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utility\INotifiableOnUpdate.cs" />
+    <Compile Include="Utility\Notifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\lib\animate.min.css" />

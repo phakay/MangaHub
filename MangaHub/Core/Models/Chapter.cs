@@ -1,12 +1,8 @@
-﻿using MangaHub.Core.Enums;
-using MangaHub.Core.Utitlity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 
 namespace MangaHub.Core.Models
 {
-    public class Chapter : INotify
+    public class Chapter
     {
         public const char KeyCodeDelimiter = '_';
         public Manga Manga { get; set; }
@@ -26,26 +22,6 @@ namespace MangaHub.Core.Models
             {
                 return $"{MangaId}{KeyCodeDelimiter}{ChapterNo}";
             } 
-        }
-        public void NotifyCreate()
-        {
-            var readers = Manga != null ? Manga.Readings.Select(r => r.User) : Enumerable.Empty<ApplicationUser>();
-            AddNotification(NotificationType.Created, $"{Manga.Artist.Name} added Chapter {ChapterNo} for {Manga.Title}", readers);
-        }
-
-        public void NotifyDelete()
-        {
-            var readers = Manga != null ? Manga.Readings.Select(r => r.User) : Enumerable.Empty<ApplicationUser>();
-            AddNotification(NotificationType.Deleted, $"{Manga.Artist.Name} removed Chapter {ChapterNo} for {Manga.Title}", readers);
-        }
-
-        public void AddNotification(NotificationType notificationType, string message, IEnumerable<ApplicationUser> users)
-        {
-            var notification = Notification.Add(notificationType, message);
-            foreach (var user in users)
-            {
-                user.Notify(notification);
-            }
         }
     }
 }

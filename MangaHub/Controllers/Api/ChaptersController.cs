@@ -2,6 +2,7 @@
 using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
@@ -83,7 +84,9 @@ namespace MangaHub.Controllers.Api
             if (chapter == null)
                 return NotFound();
 
-            chapter.NotifyDelete();
+            var notifier = new Notifier();
+            var notificationMessage = $"{manga.Artist.Name} removed Chapter {chapter.ChapterNo} for {manga.Title}";
+            notifier.NotifyUpdate(manga.Readings.Select(r => r.User), notificationMessage);
 
             _unitOfWork.ChapterRepo.Remove(chapter);
 

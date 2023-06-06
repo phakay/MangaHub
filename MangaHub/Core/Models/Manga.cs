@@ -1,5 +1,4 @@
-﻿using MangaHub.Core.Enums;
-using MangaHub.Core.Utitlity;
+﻿using MangaHub.Utility;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,9 +6,8 @@ using System.Linq;
 
 namespace MangaHub.Core.Models
 {
-    public class Manga : IUpdateableAndNotifiable<Manga>
+    public class Manga : INotifiableOnUpdate<Manga>
     {
-
         public int Id { get; set; }
         public ApplicationUser Artist { get; set; }
         public string ArtistId { get; set; }
@@ -28,73 +26,50 @@ namespace MangaHub.Core.Models
             Readings = new Collection<Reading>();
         }
 
-        public void Update(Manga objToUpdate) 
+        public void Update(Manga objWithUpdate) 
         {
-            Title = objToUpdate.Title;
-            Description = objToUpdate.Description;
-            GenreId = objToUpdate.GenreId;
-            Picture = objToUpdate.Picture;
+            Title = objWithUpdate.Title;
+            Description = objWithUpdate.Description;
+            GenreId = objWithUpdate.GenreId;
+            Picture = objWithUpdate.Picture;
         }
 
-        public void UpdateAndNotify(Manga objToUpdate)
+        public string GetNotificationMessageForUpdate(Manga objWithUpdate)
         {
             var changes = new Collection<string>();
             var originalValues = new Collection<string>();
             var newValues = new Collection<string>();
             var message = string.Empty;
 
-            if(Title != objToUpdate.Title)
+            if (Title != objWithUpdate.Title)
             {
                 changes.Add("Title");
                 originalValues.Add(Title);
-                newValues.Add(objToUpdate.Title);
+                newValues.Add(objWithUpdate.Title);
             }
-            if(Description != objToUpdate.Description)
+            if (Description != objWithUpdate.Description)
             {
                 changes.Add("Description");
             }
-            if (GenreId != objToUpdate.GenreId)
+            if (GenreId != objWithUpdate.GenreId)
             {
                 changes.Add("Genre");
                 originalValues.Add(Genre.Name);
-                newValues.Add(objToUpdate.Genre.Name);
+                newValues.Add(objWithUpdate.Genre.Name);
             }
-            if(objToUpdate.Picture != null && !Enumerable.SequenceEqual(Picture, objToUpdate.Picture))
+            if (objWithUpdate.Picture != null && !Enumerable.SequenceEqual(Picture, objWithUpdate.Picture))
             {
                 changes.Add("Picture");
             }
 
-            if(changes.Count > 0)
+            if (changes.Count > 0)
             {
                 var changesString = changes.Count > 1 ? string.Join(" and ", changes) : changes[0];
                 message = $"{Artist.Name} has updated {changesString} of {Title}" +
                 $" from {string.Join(" / ", originalValues)} to {string.Join(" / ", newValues)}";
             }
-            
-            Update(objToUpdate);
 
-            if(!string.IsNullOrEmpty(message))
-                AddNotification(NotificationType.Created, message, Readings.Select(r => r.User));
-        }
-
-        public void NotifyCreate()
-        {
-            var followers = Artist.Followers.Select(f => f.Follower);
-            AddNotification(NotificationType.Created, $"{Artist.Name} uploaded Manga: {Title}", followers);
-        }
-
-        public void NotifyDelete()
-        {
-            AddNotification(NotificationType.Deleted, $"{Artist.Name} removed Manga: {Title}", Readings.Select(r => r.User));
-        }
-
-        public void AddNotification(NotificationType notificationType, string message, IEnumerable<ApplicationUser> users)
-        {
-            var notification = Notification.Add(notificationType, message);
-            foreach (var user in users)
-            {
-                user.Notify(notification);
-            }
+            return message;
         }
     }
 }

@@ -2,6 +2,7 @@
 using MangaHub.Core.Models;
 using MangaHub.Core.ViewModels;
 using MangaHub.Persistence;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,10 @@ namespace MangaHub.Controllers
                 GenreId = viewModel.Genre,
                 Picture = viewModel.Picture
             };
-            manga.NotifyCreate();
+
+            var notifier = new Notifier();
+            var notificationMessage = $"{artist.Name} uploaded Manga: {manga.Title}";
+            notifier.NotifyCreate(artist.Followers.Select(f => f.Follower), notificationMessage);
 
             _unitOfWork.MangaRepo.Add(manga);
             _unitOfWork.Complete();
@@ -153,15 +157,21 @@ namespace MangaHub.Controllers
                 return HttpNotFound("Manga was not found");
             if (genre == null)
                 return HttpNotFound("Genre was not found");
-            
-            manga.UpdateAndNotify(new Manga
+
+            var mangaToUpdate = new Manga
             {
                 Title = viewModel.Title,
                 Description = viewModel.Description,
                 GenreId = viewModel.Genre,
                 Genre = genre,
                 Picture = imageData
-            });
+            };
+            
+            var notifier = new Notifier();
+            var notificationMessage = manga.GetNotificationMessageForUpdate(mangaToUpdate);
+            notifier.NotifyUpdate(manga.Readings.Select(r => r.User), notificationMessage);
+
+            manga.Update(mangaToUpdate);
 
             _unitOfWork.Complete();
 

@@ -2,7 +2,9 @@
 using MangaHub.Core;
 using MangaHub.Core.Models;
 using MangaHub.Core.ViewModels;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace MangaHub.Controllers
@@ -59,7 +61,10 @@ namespace MangaHub.Controllers
 
             var mangaChapter = Mapper.Map<ChapterFormViewModel, Chapter>(viewModel);
             mangaChapter.Manga = manga;
-            mangaChapter.NotifyCreate();
+
+            var notifier = new Notifier();
+            var notificationMessage = $"{manga.Artist.Name} added Chapter {mangaChapter.ChapterNo} for {manga.Title}";
+            notifier.NotifyUpdate(manga.Readings.Select(r => r.User), notificationMessage);
 
             _unitOfWork.ChapterRepo.Add(mangaChapter);
 

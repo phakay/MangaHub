@@ -1,6 +1,7 @@
 ﻿using MangaHub.Core;
 using MangaHub.Core.Dtos;
 using MangaHub.Core.Models;
+using MangaHub.Utility;
 using Microsoft.AspNet.Identity;
 using System.Linq;
 using System.Web.Http;
@@ -43,7 +44,9 @@ namespace MangaHub.Controllers.Api
 
             var following = new Following(follower, followee);
 
-            following.NotifyCreate();
+            var notifier = new Notifier();
+            var notificationMessage = $"{follower.Name} is following you";
+            notifier.NotifyCreate(new[] { followee }, notificationMessage);
 
             _unitOfWork.FollowingRepo.Add(following);
             _unitOfWork.Complete();
@@ -59,7 +62,9 @@ namespace MangaHub.Controllers.Api
             if (following == null)
                 return NotFound();
 
-            following.NotifyDelete();
+            var notifier = new Notifier();
+            var notificationMessage = $"{following.Follower.Name} has unfollowed you";
+            notifier.NotifyDelete(new[] { following.Followee }, notificationMessage);
 
             _unitOfWork.FollowingRepo.Remove(following);
             _unitOfWork.Complete();
